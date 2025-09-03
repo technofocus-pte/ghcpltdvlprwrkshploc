@@ -18,7 +18,7 @@
 
 1.  打开 Edge 浏览器。
 
-> ![](./media/image1.jpeg)
+> ![](./media/image1.png)
 
 2.  在浏览器 URL 字段中，复制粘贴链接以将软件包下载到实验室 VM。
 
@@ -31,7 +31,7 @@
 >
 > **注意**：默认情况下，包将保存在**downloads**文件夹中。
 >
-> ![](./media/image2.jpeg)
+> ![](./media/image2.png)
 
 1.  **安装Node.js和 mvn**
 
@@ -40,57 +40,57 @@
 1.  转到 **Downloads**（**C：\Users\Admin\Downloads**）
     文件夹，然后双击node-v20.16.0-x64.msi **。**
 
-> ![](./media/image3.jpeg)
+> ![](./media/image3.png)
 
 2.  在“Node.js setup wizard”窗口中，单击 **Next**。
 
-> ![](./media/image4.jpeg)
+> ![](./media/image4.png)
 
 3.  接受 EULA 并单击 **Next**。
 
-> ![](./media/image5.jpeg)
+> ![](./media/image5.png)
 
 4.  保留默认目标文件夹，然后单击“**Next**”。
 
-> ![](./media/image6.jpeg)
+> ![](./media/image6.png)
 
 5.  单击“**Add to the PATH**”，然后单击“**Next**”。
 
-> ![](./media/image7.jpeg)
+> ![](./media/image7.png)
 
 6.  在“**Tools for native
     Modules**”窗口中，选中该**复选框**并单击“Next”。
 
-> ![](./media/image8.jpeg)
+> ![](./media/image8.png)
 
 7.  单击 **Install**。
 
-> ![](./media/image9.jpeg)
+> ![](./media/image9.png)
 >
 > 注意：如果您看到 **User Access Control** 弹出窗口，请单击 **Yes**
 > 继续。
 
 8.  完成后点击 **Finish**。
 
-> ![](./media/image10.jpeg)
+> ![](./media/image10.png)
 
 9.  **Cmd** 终端打开。按任意键继续..
 
-> ![](./media/image11.jpeg)
+> ![](./media/image11.png)
 >
 > 注意：按下某个键后，您可能会看到延迟。请等待一段时间以继续安装。
 
 10. 单击“**Yes**”在 UAC 窗口中继续。
 
-> ![](./media/image12.jpeg)
+> ![](./media/image12.png)
 
 11. **Windows Powershell** 打开，显示安装详细信息。
 
-> ![](./media/image13.jpeg)
+> ![](./media/image13.png)
 
 12. 安装完成后，键入 **Enter** 退出 PowerShell。
 
-> ![](./media/image14.jpeg)
+> ![](./media/image14.png)
 
 2.  **安装 mocha**
 
@@ -98,23 +98,23 @@
 
 1.  打开命令提示符
 
-> ![](./media/image15.jpeg)
+> ![](./media/image15.png)
 
 2.  首先运行以下命令。
 
 > +++npm install --global mocha+++
 >
-> ![](./media/image16.jpeg)
+> ![](./media/image16.png)
 >
-> ![](./media/image17.jpeg)
+> ![](./media/image17.png)
 
 3.  接下来运行以下命令
 
 > +++npm install axios+++
 >
-> ![](./media/image18.jpeg)
+> ![](./media/image18.png)
 >
-> ![](./media/image19.jpeg)
+> ![](./media/image19.png)
 >
 > 现在您已经完成了**mocha** 的安装。关闭终端以继续安装其他软件包。
 
@@ -123,7 +123,7 @@
 1.  在 Visual Studio 中， 从 exercisefiles -\>
     节点打开**nodeserver.js**。
 
-![](./media/image20.jpeg)
+![](./media/image20.png)
 
 2.  我们需要开始为节点编码。js
     服务器，该服务器将公开一个方法调用“get”，该调用将返回查询字符串中传递的键的值。让我们使用
@@ -144,15 +144,15 @@ will return the value of the key passed in the query string**
 
 **// when server is listening, log "server is listening on port 3000"**
 
-![](./media/image21.jpeg)
+![](./media/image21.png)
 
 4.  Copilot 生成代码并显示。单击 **“Accept”** 以接受它。
 
-![](./media/image22.jpeg)
+![](./media/image22.png)
 
 5.  右键单 **node** 点文件夹，然后选择在集成终端中打开。
 
-![](./media/image23.jpeg)
+![](./media/image23.png)
 
 6.  打开终端后，从中执行以下命令。
 
@@ -160,7 +160,7 @@ will return the value of the key passed in the query string**
 
 7.  您应该得到的结果为 **1 Passing**，如下面的屏幕截图所示。
 
-![](./media/image24.jpeg)
+![](./media/image24.png)
 
 8.  这是nodeserver.js中方法的单元测试，它已通过。
 
@@ -177,7 +177,7 @@ will return the value of the key passed in the query string**
 
 **请注意：** 请参阅红色突出显示的大括号，您需要按 **Enter** 键
 
-![](./media/image25.jpeg)
+![](./media/image25.png)
 
 3.  按 **Ctrl+I** 打开 Copilot 内联功能，输入以下内容并单击 **Send**。
 
@@ -218,13 +218,13 @@ res.end(Math.round(difference_ms / 86400000) + " days");
 
 }
 
-![](./media/image26.jpeg)
+![](./media/image26.png)
 
 4.  Copilot 生成代码。点击 **Accept**
     接受代码。请注意，生成的代码是请求中的 **else if** 块，其中是
     **DaysBetweenDates**。
 
-![](./media/image27.jpeg)
+![](./media/image27.png)
 
 5.  单击 **DaysBetweenDates** 块后的 **Enter**。
 
@@ -278,11 +278,11 @@ res.end("invalid");
 
 }
 
-![](./media/image28.jpeg)
+![](./media/image28.png)
 
 7.  Copilot 生成代码。单击 **“Accept”** 以接受代码。
 
-![](./media/image29.jpeg)
+![](./media/image29.png)
 
 8.  单击 **Validatephonenumber** 块后的 **Enter** 以添加下一个代码块。
 
@@ -336,16 +336,16 @@ res.end("invalid");
 >
 > }
 >
-> ![](./media/image30.jpeg)
+> ![](./media/image30.png)
 
 10. 粘贴上述内容后，Copilot 会生成代码，该代码显示在评论下方。点击
     **Accept** 接受代码。
 
-![](./media/image31.jpeg)
+![](./media/image31.png)
 
 11. 从左侧导航窗格打开 Copilot 聊天。
 
-![](./media/image32.jpeg)
+![](./media/image32.png)
 
 12. 将以下内容粘贴到聊天中，然后单击“**Send”**按钮。
 
@@ -399,33 +399,33 @@ res.end(colorFound);
 
 > **注意：** 默认情况下，Copilot 将使用打开的文件作为上下文来生成建议。
 
-![](./media/image33.jpeg)
+![](./media/image33.png)
 
 13. 将光标保留在 **ValidateSpanishDNI**
     块之后，然后单击聊天中的“插入光标处”图标。这**会将** Copilot
     生成的代码从聊天复制到上述位置的服务器 js 文件。
 
-![](./media/image34.jpeg)
+![](./media/image34.png)
 
 14. 检查是否有错误。在此生成的代码中，存在错误，因为 else if
     块之间有一个常量声明。
 
-![](./media/image35.jpeg)
+![](./media/image35.png)
 
 15. 按 **Ctrl+I** 打开 Copilot Inline，输入 !!**/fix**!!
     并单击“**Send**”按钮
 
-![](./media/image36.jpeg)
+![](./media/image36.png)
 
 16. 如果可以找到解决方案，Copilot
     会生成解决方案。根据解决方案的准确性接受或放弃解决方案。
 
-![](./media/image37.jpeg)
+![](./media/image37.png)
 
 17. 在这里，我们将常量声明移动到 returncolors 的 else if
     块中以解决错误。
 
-![](./media/image38.jpeg)
+![](./media/image38.png)
 
 **重要提示：** 根据 Copilot
 生成的代码和解决方案，代码和解决方案可能有所不同。
@@ -474,11 +474,11 @@ console.log(error);
 
 }
 
-![](./media/image39.jpeg)
+![](./media/image39.png)
 
 19. 单击 **“Accept”** 以接受 Copilot 生成的代码。
 
-![](./media/image40.jpeg)
+![](./media/image40.png)
 
 20. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
 
@@ -549,11 +549,11 @@ console.log(error);
 
 }
 
-![](./media/image41.jpeg)
+![](./media/image41.png)
 
 21. 点击 **Accept** 接受代码。
 
-![](./media/image42.jpeg)
+![](./media/image42.png)
 
 22. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
 
@@ -601,11 +601,11 @@ and hash**
 >
 > }
 
-![](./media/image43.jpeg)
+![](./media/image43.png)
 
 23. 点击 **Accept** 接受代码。
 
-![](./media/image44.jpeg)
+![](./media/image44.png)
 
 24. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
 
@@ -643,11 +643,11 @@ res.end(linesFound);
 **注意：**
 小心此实现，因为它通常会在分析文件之前读取文件的全部内容，因此内存使用率很高，并且当文件太大时可能会失败。
 
-![](./media/image45.jpeg)
+![](./media/image45.png)
 
 25. 点击 **Accept** 接受代码。
 
-![](./media/image46.jpeg)
+![](./media/image46.png)
 
 26. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
 
@@ -707,11 +707,11 @@ res.end(lines.toString());
 
 }
 
-![](./media/image47.jpeg)
+![](./media/image47.png)
 
 27. 点击 **Accept** 接受代码。
 
-![](./media/image48.jpeg)
+![](./media/image48.png)
 
 28. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
 
@@ -733,11 +733,11 @@ res.end(memory.toFixed(2) + " GB");
 
 }
 
-![](./media/image49.jpeg)
+![](./media/image49.png)
 
 29. 点击 **Accept** 接受代码。
 
-![](./media/image50.jpeg)
+![](./media/image50.png)
 
 30. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send**按钮。
 
@@ -872,11 +872,11 @@ res.end(randomCountry.country + " " + randomCountry.iso);
 
 }
 
-![](./media/image51.jpeg)
+![](./media/image51.png)
 
 31. 点击 **Accept** 接受代码。
 
-![](./media/image52.jpeg)
+![](./media/image52.png)
 
 ## **练习 3：记录代码**
 
@@ -890,7 +890,7 @@ res.end(randomCountry.country + " " + randomCountry.iso);
 
 3.  Copilot 生成文件的详细文档。
 
-![](./media/image53.jpeg)
+![](./media/image53.png)
 
 ## **练习 4：构建测试**
 
@@ -908,42 +908,42 @@ Chat 运行，也可以通过选择要为其创建测试的代码片段并使用
 
 **//add test to test DaysBetweenDates**
 
-![](./media/image54.jpeg)
+![](./media/image54.png)
 
 4.  这将生成 **DaysBetweenDates** 的单元测试块。点击 **Accept**
     接受代码。
 
-![](./media/image55.jpeg)
+![](./media/image55.png)
 
 5.  在终端上，执行以下命令!!**mocha test.js**!!
 
-![](./media/image56.jpeg)
+![](./media/image56.png)
 
 6.  输入以下文本 **//add test to check validatephoneNumber**，然后单击
     **Enter**。
 
-![](./media/image57.jpeg)
+![](./media/image57.png)
 
 7.  单击 **“Accept”** 以接受 Copilot 生成的代码。
 
-![](./media/image58.jpeg)
+![](./media/image58.png)
 
 8.  在终端上，执行命令!!**mocha test.js**!!.检查验证电话号码是否已通过。
 
-![](./media/image59.jpeg)
+![](./media/image59.png)
 
 9.  输入以下文本并按 **Enter**。
 
 !!**//write test to validate validateSpanishDNI**!!
 
-![](./media/image60.jpeg)
+![](./media/image60.png)
 
 10. 接受 Copilot 生成的文本。
 
 11. 从终端，执行!!**mocha test.js**!!并检查 ValidateSpanishDNI
     是否已通过。
 
-![](./media/image61.jpeg)
+![](./media/image61.png)
 
 **Reference Code:**
 
@@ -1184,7 +1184,7 @@ done();
 
 1.  从 **node** 文件夹中打开 **dockerfile**。
 
-![](./media/image62.jpeg)
+![](./media/image62.png)
 
 2.  该文件将包含有关如何填充它的注释。
 
@@ -1192,7 +1192,7 @@ done();
 
 4.  Copilot 将生成 Docker 文件内容。单击 **“Accept”**。
 
-![](./media/image63.jpeg)
+![](./media/image63.png)
 
 5.  在终端中，执行以下命令
 
@@ -1200,19 +1200,18 @@ done();
 
 这是为了构建映像并将其标记为 mynodeapp。
 
-![](./media/image64.jpeg)
+![](./media/image64.png)
 
 6.  使用以下命令在端口 **4000** 中运行 docker。
 
 !!**docker run -p 4000:3000 -d mynodeapp**!!
 
-![](./media/image65.jpeg)
+![](./media/image65.png)
 
 7.  打开 Docker 守护程序以查看应用程序是否已容器化并在其中运行。
 
-![](./media/image66.jpeg)
+![](./media/image66.png)
 
 **总结：**
 
 在本实验室中，我们学习了如何在节点项目中使用 Copilot
-
