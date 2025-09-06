@@ -1,156 +1,173 @@
-**实验 04：查看拉取请求并解决合并冲突**
+**실습 04: 풀 리퀘스트 검토 및 병합 충돌 해결하기**
 
-目的：
+목표:
 
-想象一下，您是开发团队的一员，负责一个有多个贡献者的项目。随着更改的进行，审查这些更改并确保每个人的工作顺利集成至关重要。您需要通过管理拉取请求和解决合并冲突来有效协作，以维护项目的完整性并避免中断。
+여러 기여자가 있는 프로젝트를 진행하는 개발 팀의 일원입니다. 변경 사항이
+적용되면 이러한 변경 사항을 검토하고 모든 사람의 작업이 원활하게
+통합되도록 하는 것이 중요합니다. 풀 리퀘스트를 관리하고 병합 충돌을
+해결하여 프로젝트의 무결성을 유지하고 중단을 방지하여 효과적으로
+협업해야 합니다.
 
-在这个动手实验室中，你将重点介绍 GitHub 上协作的两个关键方面:
+이 실에서는 GitHub에서 협업의 두 가지 주요 측면에 집중합니다:
 
-- 创建拉取请求：选择适当的分支，提供标题和描述，然后提交拉取请求以提出更改建议。
+- 풀 리퀘스트를 생성하기: 적절한 분기를 선택하고, 제목과 설명을
+  제공하고, 끌어오기 요청을 제출하여 변경 사항을 제안
 
-- 审查拉取请求：检查拉取请求中提出的更改，确保它们符合项目标准并准备好进行集成。
+- 풀 리퀘스트를 검토하기: 풀 리퀘스트에서 제안된 변경 사항을 검토하여
+  프로젝트 표준을 충족하고 통합할 준비가 되었는지 확인
 
-- 解决合并冲突：练习解决不同分支中的更改影响文件的相同部分时出现的冲突，确保顺利集成和协作。
+- 병합 충돌 해결하기: 서로 다른 분기의 변경 사항이 파일의 동일한 부분에
+  영향을 미칠 때 발생하는 충돌을 해결하여 원활한 통합과 협업을 보장하는
+  연습
 
-练习 \#1：从模板创建存储库并创建拉取请求
+연습 \#1: 템플릿에서 리포지토리를 생성하고 풀 리퀘스트를 생성하기
 
-拉取请求将向其他人显示分支中的更改。此拉取请求将保留您刚刚在分支上所做的更改，并建议将它们应用于主分支。
+풀 리퀘스트는 분기의 변경 내용을 다른 사용자에게 표시합니다. 이 풀
+리퀘스트는 분기에서 방금 변경한 내용을 유지하고 기본 분기에 적용할 것을
+제안합니다.
 
-1.  登录到你的 GitHub 帐户。
+1.  GitHub 계정을 로그인하세요.
 
-2.  浏览到以下链接：https://github.com/skills/review-pull-requests
+2.  다음 링크로
+    이동하세요: https://github.com/skills/review-pull-requests
 
-在本练习中，你将使用公共模板“**skills-review-pull-requests**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-review-pull-requests**"를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-3.  选择“**Create a new repository**”菜单下的“**Use this template**”。  
+3.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-4.  输入以下详细信息，然后选择 **Create Repository**。
+4.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称: **skills-review-pull-requests**
+    - 리포지토리 이름: **skills-review-pull-requests**
 
-    2.  存储库类型: **Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-5.  在主导航页上，选择“**Pull requests** ”选项卡。
+5.  기본 탐색 페이지에서 **Pull requests** 탭을 선택하세요
 
 ![](./media/image4.jpeg)
 
-6.  在下一页上，选择“**New pull request**”。
+6.  다음 페이지에서 **New pull request**를 선택하세요.
 
 ![](./media/image5.jpeg)
 
-7.  在“**Compare changes”**页上:
+7.  **Compare changes** 페이지에서:
 
-    1.  在 **base**： 下拉列表中，选择
-        **main**（默认情况下处于选中状态）
+    - **Base:** 드롭다운에서, **main**을 선택하세요 (기본적으로 이
+      옵션이 선택되어 있습니다.)
 
-    2.  在 **compare**： 下拉列表中，选择 **update-game**，
+    - **Compare:** 드롭다운에서, **update-game**를 선택하세요,
 
-通常需要等待几秒钟并刷新页面才能查看分支。
+일반적으로 몇 초를 기다렸다가 분기를 보려면 페이지를 새로 고쳐야 합니다.
 
 ![](./media/image6.jpeg)
 
 ![](./media/image7.jpeg)
 
-8.  在**compare:**下拉列表中选择 **update-game** 后，将打开“**Comparing
-    changes**”窗口。单击**Create pull request**。
+8.  **update-game**가 선택되면 **compare:** 드롭다운에서, **Comparing
+    changes** 창이 엽니다. **Create pull request**를 클릭하세요.
 
 ![](./media/image8.jpeg)
 
-9.  在“**Open a pull request”页上，**输入以下内容:
+9.  **Open a pull request page**에서 다음을 입력하세요:
 
-    1.  为拉取请求**添加标题**：更新游戏结束消息
+    - 풀 리퀘스트에 대한 **Add a title**: Update the game over message
 
-    2.  为您的拉取请求**添加描述**：更新游戏结束消息，以便人们知道如何玩
+    - 풀 리퀘스트에 대한**Add a description**: Update the game over
+      message so people know how to play again
 
-10. 单击 **Create pull request**。 
+10. **Create pull request**를 클릭하세요.
 
 ![](./media/image9.jpeg)
 
-11. 等待大约 20 秒，然后刷新此页面。GitHub Actions 将自动更新到下一步。
+11. 약 20초 동안 기다린 후 이 페이지를 새로 고치세요. GitHub Actions는
+    자동으로 다음 단계로 업데이트됩니다.
 
 ![](./media/image10.jpeg)
 
-练习 \#2：更新拉取请求并解决合并冲突
+연습 \#2: 풀 리퀘스트를 업데이트 및 병합 충돌 해결하기
 
-1.  浏览到以下链接：https://github.com/skills/resolve-merge-conflicts
+1.  다음 링크로
+    이동하세요: https://github.com/skills/resolve-merge-conflicts
 
-在本练习中，你将使用公共模板“**skills-resolve-merge-conflicts**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-resolve-merge-conflicts**"를
+사용하여 리포지토리를 생성할 것입니다.
 
 ![](./media/image11.jpeg)
 
-2.  选择“**Use this template** ”菜单下的“**Create a new repository** ”。
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image12.jpeg)
 
-3.  输入以下详细信息，然后选择**Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    - 存储库名称: **skills-resolve-merge-conflicts**
+    - 리포지토리 이름: **skills-resolve-merge-conflicts**
 
-    - 存储库类型: **Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image13.jpeg)
 
-4.  创建存储库后，选择主导航栏上的“**Pull request** ”选项卡。
+4.  리포지토리가 생성되묜 기본 탐색 바에서 **Pull request** 탭을
+    선택하세요.
 
 ![](./media/image14.jpeg)
 
-5.  单击“**New pull request** ”按钮。
+5.  **New pull request** 버튼을 클릭하세요.
 
 ![](./media/image15.jpeg)
 
-6.  通过选择以下选项创建拉取请求:
+6.  다음을 선택하고 풀 리퀘스트를 생성하세요:
 
-    - **my-resume** 作为 head 分支，并将
+    - **my-resume**을 헤드 분기로 사용
 
-    - **main** 作为比较分支。
+    - **main**을 비교 분기로 사용
 
 ![](./media/image16.jpeg)
 
 ![](./media/image17.jpeg)
 
-7.  单击**“Create pull request”**按钮
+7.  **Create pull request** 버튼을 클릭하세요
 
-8.  在“**Open a pull
-    request** ”页上，输入标题为“解决合并冲突”，然后单击“**Create pull
-    request**”。
+8.  **Open a pull request** 페이지에서 타이틀을 Resolving merge
+    conflicts로 입력하고 **Create pull request**를 클릭하세요**.**
 
 ![](./media/image18.jpeg)
 
-9.  等待 20 秒，让 GitHub Actions
-    自动更新，页面显示冲突的详细信息（如果有）。
+9.  GitHub Actions가 자동으로 업데이트되고 페이지에 충돌 세부 정보(있는
+    경우)가 표시되는 동안 20초 동안 기다리세요.
 
 ![](./media/image19.jpeg)
 
-10. 单击 **Resolve conflicts** 以继续。 
+10. 계속하려면 **Resolve conflicts**를 클릭하세요.
 
 ![](./media/image20.jpeg)
 
-11. 查看冲突并解决它们。
+11. Review the conflicts and resolve them.
 
 ![](./media/image21.jpeg)
 
-12. 在本练习中，让我们删除行项目冲突，然后单击** Mark as resolved**
-    按钮。
+12. 이 연습에서, 광고 항목 충돌을 삭제하고 **Mark as resolved** 버튼을
+    클릭하세요.
 
 ![](./media/image22.jpeg)
 
-13. 单击**“Commit merge ”**按钮并选中提醒消息框。
+13. **Commit merge** 버튼을 클릭하고 주의 사항 메시지 상자를 선택하세요.
 
 ![](./media/image23.jpeg)
 
-14. 点击 **I understand, continue updating main。**
-    您将看到最终检查结果\*\*。
+14. **I understand, continue updating main**을 클릭하세요**.** 최종 확인
+    결과를 볼 수 있습니다.\*\*.\*\*
 
 ![](./media/image24.jpeg)
 
-**总结：**
+**요약:**
 
-现在，你已经完成了冲突的拉取请求的创建和审查以及解决冲突，这是在 GitHub
-上进行有效团队合作和项目管理的基本技能。
-
+이제 GitHub에서 효과적인 팀워크 및 프로젝트 관리를 위한 필수 기술인
+충돌에 대한 풀 리퀘스트 생성 및 검토 및 충돌 해결을 완료했습니다.
