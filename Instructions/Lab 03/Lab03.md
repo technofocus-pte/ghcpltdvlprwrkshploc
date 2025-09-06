@@ -1,123 +1,137 @@
-**实验室 03：使用 GitHub Pages 和 Jekyll 创建在线作品集**
+**실습 03: GitHub Pages 및 Jekyll을 사용하여 온라인 포트폴리오를
+생성하기**
 
-目的：
+목표:
 
-想象一下，您是一家科技初创公司的一名崭露头角的软件开发人员，渴望通过在线作品集展示您的项目、技能和经验。您需要一个专业的平台来展示您的作品，因此您决定使用
-GitHub Pages 创建一个个人网站或博客。该平台允许您利用 GitHub
-存储库轻松发布和维护您的网站。
+당신이 온라인 포트폴리오를 통해 프로젝트, 기술 및 경험을 선보이고
+싶어하는 기술 스타트업의 신진 소프트웨어 개발자입니다. 전문적인
+플랫폼에서 작업을 표시하기를 원하므로 GitHub Pages를 사용하여 개인
+웹사이트나 블로그를 생성하기로 결정했습니다. 이 플랫폼을 사용하면 GitHub
+리포지토리를 활용하여 웹사이트를 쉽게 게시하고 유지할 수 있습니다.
 
-在这个动手实验室中，您将:
+이 실습에서는 다음을 수행할 것입니다:
 
-- 创建 GitHub 存储库：设置一个新存储库，作为您个人站点的基础。
+- GitHub Repository를 생성: 개인 사이트의 기초 역할을 할 새 조장소를
+  설정하기
 
-- 启用 GitHub Pages：将 GitHub Pages 配置为直接从存储库托管您的网站。
+- GitHub Pages를 활성화: 리포지토리에서 직접 웹 사이트를 호스팅하도록
+  GitHub Pages를 구성하기
 
-<!-- -->
+- Jekyll을 사용하여 첫번째 사이트를 배포: 인기 있는 정적 사이트 생성기인
+  Jekyll을 활용하여 최소한의 노력으로 전문가 수준의 웹사이트를 구축하고
+  배포하기
 
-- 使用 Jekyll 部署您的第一个站点：利用流行的静态站点生成器
-  Jekyll，以最小的努力构建和部署具有专业外观的网站.
+연습 \#1: 템플릿에서 리포지토리를 생성하기
 
-练习 \#1：从模板创建存储库
+1.  GitHub 계정을 로그인하세요.
 
-1.  登录到你的 GitHub 帐户。
+2.  다음 링크로 이동하세요: https://github.com/skills/github-pages
 
-2.  浏览到以下链接: https://github.com/skills/github-pages
-
-在本练习中，你将使用公共模板“**skills-github-pages**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-github-pages**"를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-3.  选择“**Use this template**”菜单下的“**Create a new repository**”。  
+3.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-4.  输入以下详细信息，然后选择 **Create Repository**。
+4.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称: **skills-github-pages**
+    - 리포지토리 이름: **skills-github-pages**
 
-    2.  存储库类型: **Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 \#2：启用 GitHub 页面
+연습 \#2: GitHub Pages를 활성화하기
 
-1.  创建存储库后，导航到主页。在主导航窗格中，单击“**Settings**”图标。 
+1.  리포지토리가 생성되면 홈 페이지로 이동하세요. 기본 탐색 창에서
+    **Settings **아이콘을 클릭하세요.
 
 ![](./media/image4.jpeg)
 
-2.  在设置页面中，向下滚动到代码和自动化，然后单击 **Pages**。
+2.  설정 페이지에서 코드 및 자동화까지 아래로 스크롤하고 **Pages**를
+    클릭하세요.
 
 ![](./media/image5.jpeg)
 
-3.  在 GitHub 页面上，确保从“**Source**”下拉菜单中选择“**Deploy from a
-    branch**”，然后从“**Branch**”下拉菜单中选择“**main**”。
+3.  GitHub pages 페이지에서 **Source** 드롭다운 메뉴에서 "**Deploy from
+    a branch**"가 선택되어는지 확인하고 **Branch** 드롭다운 메뉴에서
+    **main**을 선택하세요.
 
 ![](./media/image6.jpeg)
 
-4.  点击 **Save**  按钮继续。
+4.  계속하려면 **Save** 버튼을 클릭하세요.
 
 ![](./media/image7.jpeg)
 
-5.  将保存 GitHub Pages 源代码。等待大约一分钟，然后刷新此页面。GitHub
-    Actions 将自动更新到下一步。
+5.  GitHub Pages 원본이 저장됩니다. 약 1분 정도 기다린 후 이 페이지를
+    새로 고치세요. GitHub Actions는 다음 단계로 자동으로 업데이트됩니다.
 
 ![](./media/image8.jpeg)
 
-6.  您的网站现已上线。
+6.  이제 사이트가 활성화되었습니다.
 
 ![](./media/image9.jpeg)
 
-7.  单击访问站点按钮以查看您的站点。你打开了 GitHub 页面。
+7.  Visit Site 버튼을 클릭하여 사이트를 확인하세요. GitHub pages를
+    켰습니다.
 
 ![](./media/image10.jpeg)
 
-练习 \#3：使用 Jekyll 部署您的站点
+연습 \#3: Jekyll을 사용하여 사이트를 배포하기
 
-您将在分支 my-pages
-中工作，以使这个网站看起来很棒。在本实验中，我们将使用博客就绪主题。“minima”。
+이 사이트를 멋지게 보이게 하기 위해 분기인 **my-pages**에서 작업하게
+됩니다. 이 실습에서는 블로그용 테마 "minima"를 사용합니다.
 
-Jekyll 使用名为 **\_config.yml**
-的文件来存储您的网站、主题和可重用内容（如网站标题和 GitHub
-句柄）的设置。
+Jekyll 은 **\_config.yml**라는 파일을 사용하여 사이트, 테마 및 사이트
+제목 및 GitHub 핸들과 같은 재사용 가능한 콘텐츠에 대한 설정을
+저장합니다.
 
-1.  选择存储库的**“Code**”选项卡
+1.  리포지토리에서 **Code**를 선택하세요.
 
 ![](./media/image11.jpeg)
 
-2.  展开**main **分支并选择 **my-pages**。
+2.  **main** 분기를 확장하고 **my-pages**를 선택하세요.
 
 ![](./media/image12.jpeg)
 
-在 **my-pages** 分支中，**\_config.yml**浏览到文件
+**my-pages** 분기에서 **\_config.yml** 파일을 찾으세요.
 
 ![](./media/image13.jpeg)
 
-3.  打开右上角的文件编辑器。
+3.  오른쪽 상단 모서리에 있는 파일 편집기를 여세요.
 
 ![](./media/image14.jpeg)
 
-4.  添加主题：设置为 **minima**，使其在**\_config.yml**文件中显示如下：
+4.  테마 추가하기: 아래 와 같이 \_config.yml 파일에 표시되도록
+    **minima**로 설정하세요
 
 ![](./media/image15.jpeg)
 
-5.  单击**“Commit Changes”**按钮以保存更改。
+5.  변경을 저장하려면 **Commit Changes**를 클릭하세요.
 
 ![](./media/image16.jpeg)
 
-**注意：**等待大约一分钟，然后刷新此页面。GitHub Actions
-将自动更新到下一步。
+**참고:** 약 1분 정도 기다린 후 이 페이지를 새로 고치세요. GitHub
+Actions는 자동으로 다음 단계로 업데이트됩니다.
 
-6.  要检查更新的网站，请单击 GitHub 页面下的 **Visit site** 按钮。
+6.  업데이트된 사이트를 확인하려면 GitHub 페이지 아래의 **Visit
+    site**버튼을 클릭하세요.
 
 ![](./media/image17.jpeg)
 
-7.  将应用所选主题。您可以继续修改其他配置变量，例如 title：、author：
-    和 description：，以进一步自定义您的网站
+7.  선택한 테마가 적용됩니다. title:, author: 및 description:과 같은
+    다른 구성 변수를 계속 수정하여 사이트를 추가로 사용자 지정할 수
+    있습니다.
 
 ![](./media/image18.jpeg)
 
-总结：
+요약:
 
-您现在已经创建了一个包含 GitHub
-页面的网站并应用了主题。您可以利用此经验创建一个实时网站，您可以在其中不断更新和展示您的软件开发之旅，使雇主、合作者和技术社区更容易看到您的工作和技能。
-
+이제 GitHub pages가 있는 웹 사이트를 생성하고 테마를 적용했습니다. 이
+경험을 활용하여 소프트웨어 개발 여정을 지속적으로 업데이트하고 선보일 수
+있는 라이브 웹사이트를 생성하여 고용주, 공동 작업자 및 기술 커뮤니티가
+귀하의 작업과 기술을 더 쉽게 볼 수 있도록 할 수 있습니다.
