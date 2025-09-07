@@ -1,114 +1,124 @@
-**实验 13：编写 GitHub JavaScript Action
-并自动执行工作流特有的自定义任务**
+**실습 13: GitHub JavaScript Action을 작성하고 워크플로우에 고유한
+사용자 지종 작업을 자동화하기**
 
-目标：
+목표:
 
-想象一下，您的任务是创建一个自定义 GitHub
-Action，以自动执行工作流程中的特定任务。首先，您需要设置一个开发环境来编写和测试您的
-JavaScript Action。这涉及初始化一个新的 JavaScript
-项目、配置项目结构以及安装必要的依赖项。通过执行本练习中的步骤，您将为开发
-GitHub Action 奠定坚实的基础，从而允许您构建适合项目需求的自动化。
+워크플로 내에서 특정 작업을 자동화하기 위해 사용자 지정 GitHub Action을
+생성하는 임무를 맡고 있습니다. 시작하려면 JavaScript Action을 작성하고
+테스트하기 위한 개발 환경을 설정해야 합니다. 여기에는 새 JavaScript
+프로젝트 초기화, 프로젝트 구조 구성, 필요한 종속성 설치가 포함됩니다. 이
+실습의 단계를 따르면 GitHub Action 개발을 위한 견고한 기반을 구축하여
+프로젝트 요구 사항에 맞는 자동화를 구축할 수 있습니다.
 
-在这个动手实验室中，你将：
+이 실습에서는 다음을 수행할 것입니다:
 
-- 克隆存储库：将提供的存储库克隆到本地计算机以开始开发过程。
+- 리포지토리 복제: 제공된 리포지토리를 로컬 컴퓨터에 복제하여 개발
+  프로세스를 시작하기
 
-- 导航到项目文件夹：移动到克隆的存储库文件夹，您将在其中设置作。
+- 프로젝트 폴더로 이동: 작업을 설정할 복제된 리포지토리 폴더로 이동하기
 
-- 创建作文件夹：在存储库中专门为您的作文件设置一个新文件夹。
+- 작업 폴더 생성: 리포지토리 내에 작업 파일을 위한 새 폴더를 설정하기
 
-- 初始化 npm 项目：在作文件夹中初始化一个新的 npm
-  项目，以管理依赖关系和配置。
+- npm 프로젝트 구현: 작업 폴더에서 새 npm 프로젝트를 초가화하여 종속성
+  및 구성 관리하기
 
-- 安装依赖项：使用 npm 安装开发 GitHub JavaScript作所需的必要依赖项。
+- 종속성 설치: npm을 사용하여 GitHub JavaScript Action을 개발하는 데
+  필요한 종속성을 설치하기
 
-- 准备作开发：配置您的项目环境以开始编写和测试您的自定义 GitHub
-  JavaScript Action。
+- 작업 개발 준비: 사용자 지정 GitHub JavaScript Action 작성 및 테스트를
+  시작하도록 프로젝트 환경을 구성하기
 
-练习：1 创建新存储库
+연습 1: 새 리포지토리를 생성하기0
 
-1.  浏览到以下链接：https://github.com/skills/write-javascript-actions
+1.  다음 링크로
+    이동하세요: https://github.com/skills/write-javascript-actions
 
-在本实验中，您将使用公共模板 **skills-write-javascript-actions**
-创建存储库
+이 실습에서는 공개 템플릿 **skills-write-javascript-actions**를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-2.  选择“**Use this template**”菜单下的“**Create a new repository** ”。 
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-3.  输入以下详细信息，然后选择 **Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称：**skills-write-javascript-actions**
+    - 리포지토리 이름: **skills-write-javascript-actions**
 
-<!-- -->
-
-1.  存储库类型: **Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 \#2：初始化新的 JavaScript 项目
+연습 \#2: 새 JavaScript 프로젝트를 구현하기
 
-在本地安装必要的工具后，请按照以下步骤开始创建您的第一个作。
+필요한 도구를 로컬에 설지했으면 다음 단계에 따라 첫 번째 작업 생성을
+시작하세요.
 
-1.  在 **write-javascript-actions** 存储库的登录页面上，单击
-    **Code**（绿色的）按钮，然后复制 **Local** 选项卡下的 HTTPS URL。 
+1.  **write-javascript-actions** 리포지토리의 랜딩
+    페이지에서 **Code** (녹색) 버튼을 클릭하고 **Local** 탭에 있는 HTTPS
+    URL을 복사하세요.
 
 ![](./media/image4.jpeg)
 
-2.  现在打开**Command prompt** 并将您的技能存储库克隆到本地计算机：
+2.  이제 **Command prompt**를 열고 기술 리포지토리를 로컬 컴퓨터에
+    복제하세요:
 
 git clone \<this repository URL\>.git
 
 ![](./media/image5.jpeg)
 
-**注意：**通常它会克隆到以下路径“**C：\Users\Admin\skills-write-javascript-actions**”
+**참고:** 일반적으로 다음 경로로 복제됩니다
+"**C:\Users\Admin\skills-write-javascript-actions**"
 
-3.  导航到您刚刚克隆的文件夹：
+3.  방금 복제한 폴더로 이동하세요:
 
 cd C:\Users\Admin\skills-write-javascript-actions
 
 ![](./media/image6.jpeg)
 
-4.  我们将使用名为 main 的分支。
+4.  main이라는 분기를 사용할 것입니다.
 
 git switch main
 
 ![](./media/image7.jpeg)
 
-5.  为我们的作文件创建一个新文件夹:
+5.  작업 파일을 위한 새 폴더를 생성하세요:
 
 mkdir -p .github\actions\joke-action
 
 ![](./media/image8.jpeg)
 
-6.  导航到您刚刚创建的 joke-action 文件夹:
+6.  방금 생성한 joke-action 폴더로 이동하세요:
 
 cd .github/actions/joke-action
 
 ![](./media/image9.jpeg)
 
-7.  初始化新项目:
+7.  새 프로젝트를 초기화하세요:
 
 npm init -y
 
 ![](./media/image10.jpeg)
 
-8.  使用 GitHub ToolKit （https://github.com/actions/toolkit） 中的 npm
-    安装 request、request-promise 和 \\actions/core 依赖项：
+8.  GitHub ToolKit(https://github.com/actions/toolkit)에서 npm을
+    사용하여 request, request-promise 및 \\actions/core 종속성을
+    설치하세요:
 
 Npm install -save request request-promise @actions/core
 
 ![](./media/image11.jpeg)
 
-9.  提交这些新添加的文件，我们将在后面的步骤中消除上传node_modules的需要:
+9.  새로 추가된 파일을 커밋하면 이후 단계에서 node_modules 업로드할
+    필요가 없습니다.:
 
 git add . && git commit -m "add project dependencies"
 
 ![](./media/image12.jpeg)
 
-**注意：**如果系统提示输入用户电子邮件和用户名，请输入以下命令并替换详细信息。
+**참고:** 사용자 이메일과 사용자 이름을 입력하라는 메시지가 표시되면
+아래 명령을 입력하여 세부 정보를 대체하세요.
 
 ![](./media/image13.jpeg)
 
@@ -116,15 +126,16 @@ git config --global user.email "your_email@example.com"
 
 git config --global user.name "Your Name"
 
-**注意**：替换为您的详细信息。
+**참고**: 세부 정보로 바꾸세요.
 
-10. 将更改推送到存储库：输入以下命令并登录
+10. 변경 사항을 리포지토리에 푸시: 아래 명령을 입력하고 로그인하세요.
 
 git push
 
 ![](./media/image14.jpeg)
 
-**注意：**当提示授权时，登录 GitHub 帐户并继续该过程。
+**참고:** 승인하라는 메시지가 표시되면 GitHub 계정에 로그인하고
+프로세스를 계속 진행하세요.
 
 ![](./media/image15.jpeg)
 
@@ -132,10 +143,11 @@ git push
 
 ![](./media/image17.jpeg)
 
-11. 等待大约 20 秒，让 GitHub Actions 自动刷新页面以进行进一步处理。
+11. GitHub Actions가 추가 처리를 위해 페이지를 자동으로 새로 고치는 동안
+    약 20초 동안 기다리세요.
 
-总结：
+요약:
 
-您现在已经建立了一个强大的开发环境来创建和管理 GitHub JavaScript
-Action，为自动化和增强工作流程奠定了基础。
-
+이제 GitHub JavaScript Action을 생성하고 관리하기 위한 강력한 개발
+환경을 구축하여 워크플로우를 자동화하고 향상시키기 위한 기반을
+마련했습니다.
