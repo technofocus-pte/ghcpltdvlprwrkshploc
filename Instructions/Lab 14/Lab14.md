@@ -1,76 +1,85 @@
-**实验室 14：保护存储库的供应链**
+**실습 14: 리포지토리의 공급 체인을 보안하기**
 
-目标：
+목표:
 
-想象一下，您负责维护依赖于各种第三方依赖项的软件项目的安全性。为了确保项目供应链的完整性和安全性，有效了解和管理这些依赖关系至关重要。这涉及识别依赖项中的潜在漏洞并应用必要的补丁来保护您的项目。在本实验中，您将学习如何使用
-GitHub
-的依赖关系图功能来监控和查看依赖关系，确保您的项目保持安全和最新。
+다양한 타사 종속성에 의존하는 소프트웨어 프로젝트의 보안을 유지할 책임이
+있습니다. 프로젝트 공급망의 무결성과 안전을 보장하려면 이러한 종속성을
+효과적으로 이해하고 관리하는 것이 중요합니다. 여기에는 종속성 내의
+잠재적인 취약점을 식별하고 프로젝트를 보호하는 데 필요한 패치를 적용하는
+것이 포함됩니다. 이 실습에서는 GitHub의 종속성 그래프 기능을 사용하여
+종속성을 모니터링하고 검토하여 프로젝트가 안전하고 최신 상태로
+유지되도록 하는 방법을 배웁니다.
 
-在这个动手实验室中，你将：
+이 실습에서는 다음을 수행할 것입니다:
 
-- 启用依赖关系图：在存储库设置中启用并验证依赖关系图功能，以可视化项目的依赖关系。
+- 종속성 그래프 활성화: 리포지토리 설정에서는 종속성 그래프 기능을
+  활성화하고 확인하여 프로젝트의 종속성을 시각화하기
 
-- 添加新的依赖项：向您的项目添加新的依赖项并确保其正确集成。
+- 새 종속성 추가: 프로젝트에 새 종속성을 추가하고 제대로 통합되었는지
+  확인하기
 
-- 查看依赖关系图：使用依赖关系图查看并确认新依赖关系是否正确反映和监控。
+- 종속성 그래프 검토: 종속성 그래프를 사용하여 새 종속성이 올바르게
+  반영되고 모니토링되는지 검토하고 확인하기
 
-练习 01：创建新存储库
+연습 01: 새 리포지토리를 생성하기
 
-1.  浏览到以下链接：https://github.com/skills/secure-repository-supply-chain
+1.  다음 링크로
+    이동하세요: <https://github.com/skills/secure-repository-supply-chain>
 
-在本练习中，您将使用公共模板创建存储库
-**skills-secure-repository-supply-chain**
+이 실습에서는 공개 템플릿 **skills-secure-repository-supply-chain**을
+사용하여 리포지토리를 생성할 것입니다
 
 ![](./media/image1.jpeg)
 
-2.  选择“**Use this template** ”菜单下的“**Create a new
-    repository**”。  
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-3.  输入以下详细信息，然后选择 **Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称：**skills-secure-repository-supply-chain**
+    - 리포지토리 이름: **skills-secure-repository-supply-chain**
 
-<!-- -->
-
-1.  存储库类型：**Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 02：验证是否启用了依赖关系图
+연습 02: 종속성 그래프가 사용하도록 설정되어 있는지 확인하기
 
-1.  在新创建的存储库的登录页上，导航到“**Settings”**选项卡。
+1.  새로 생성한 리포지토리의 랜딩 페이지에서 **Settings** 탭으로
+    이동하세요.
 
 ![](./media/image4.jpeg)
 
-2.  在“**Settings**”页上，选择“**Security**”下可用的 **Code security and
-    analysis** 。 
+2.  **Settings** 페이지에서 **Security**에서 사용 가능한 **Code security
+    and analysis**을 선택하세요.
 
 ![](./media/image5.jpeg)
 
-3.  验证/启用依赖关系图。（如果存储库是私有的，您将在此处启用它。如果存储库是公共的，则默认情况下将启用它）
+3.  종속성 그래프를 확인/활성화하세요. (리포지토리가 비공개인 경우
+    여기에서 활성화하고 리포지토리가 공개인 경우 기본적으로
+    활성화됩니다.)
 
 ![](./media/image6.jpeg)
 
-练习 03：添加新的依赖项并查看依赖关系图
+연습 03: 새 종속성 추가 및 종속성 그래프 보기
 
-1.  导航到“**Code**”选项卡并找到 **code/src/AttendeeSite** 文件夹。
+1.  **Code** 탭으로 이동하고 **code/src/AttendeeSite** 폴더를 찾으세요.
 
-**注意：**您可以浏览到该文件夹或使用 **Go to file** 搜索
-code/src/AttendeeSite
+**참고:** 폴더를 찾아보거나 **Go to file** 검색 code/src/AttendeeSite를
+사용할 수 있습니다
 
 ![](./media/image7.jpeg)
 
 ![](./media/image8.jpeg)
 
-2.  打开**package-lock.json**文件。
+2.  **package-lock.json** 파일을 여세요.
 
 ![](./media/image9.jpeg)
 
 ![](./media/image10.jpeg)
 
-3.  在第 \# 14 行和第 \#15 行之间插入以下代码片段
+3.  \# 14 행과 \# 15 행 사이에 다음 코드 조각을 삽입하세요.
 
 4.  "follow-redirects": {
 
@@ -88,29 +97,30 @@ code/src/AttendeeSite
 
 ![](./media/image11.jpeg)
 
-**注意：**请确保添加的代码片段已正确缩进，如屏幕截图所示
+**참고:** 추가된 코드 조각이 스크린샷과 같이 제대로 들여쓰기되었는지
+확인하세요
 
-10. 点击右上角的 **Commit changes**。
+10. 오른쪽 상단의 **Commit changes**를 클릭하세요.
 
 ![](./media/image12.jpeg)
 
-11. 在主导航栏上，单击“** Insights”选项卡**。
+11. 기본 탐색 바에서 **Insights tab**을 클릭하세요.
 
 ![](./media/image13.jpeg)
 
-12. 在左侧导航窗格中，单击“**Dependency graph**”。
+12. On the left side navigation pane click on the **Dependency graph**.
 
 ![](./media/image14.jpeg)
 
-13. 查看依赖项中心上的所有新依赖项。
+13. 종속성 허브에서 모든 새 종속성을 검토하세요.
 
 ![](./media/image15.jpeg)
 
-14. 搜索 follow-redirects 并查看您刚刚添加的新依赖项。
+14. follow-redirects를 검색하고 방금 추가한 새 종속성을 검토하세요.
 
 ![](./media/image16.jpeg)
 
-总结：
+요약:
 
-您现在已经获得了有关管理项目依赖项和保护存储库供应链的宝贵见解，从而使您能够主动解决和减轻安全风险。
-
+이제 프로젝트의 종속성을 관리하고 리포지토리의 공급만을 보호하는 데 대한
+귀중한 통찰력을 얻어 보안 위험을 사전에 해결하고 완화할 수 있습니다.
