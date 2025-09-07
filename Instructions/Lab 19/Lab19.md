@@ -1,78 +1,83 @@
-**实验 19 - 在 GitHub CopilotGoal 的帮助下使用 Quarkus 构建 REST API**
+**실습 19 - GitHub Copilot을 통해 Quarkus를 사용하여 REST API를
+빌드하기**
 
-本实验室的目标是学习如何使用 GitHub Copilot，使用包括使用
-https://quarkus.io/ 生成 REST API 的任务。
+**목표**
 
-我们已经创建了一个 Quarkus
-项目，其中已经创建了一些文件，您可以在**文件夹 exercisefiles/quarkus**
-中找到该项目。
+이 랩의 목표는 https://quarkus.io/ 를 사용하여 REST API를 빌드하는
+작업을 사용하여 GitHub Copilot을 사용하는 방법을 알아보는 것입니다.
 
-让我们开始副驾驶!!
+일부 파일이 이미 생성된 Quarkus 프로젝트를 생성했으므로
+**exercisefiles/quarkus** 폴더에서 프로젝트를 찾을 수 있습니다.
 
-**任务 1 - 创建代码以处理简单的 GET 请求**
+Copiloting 시작해 보겠습니다!!!
 
-移动到“DemoResource.java”文件并开始编写代码来处理简单的 GET 请求。
+**작업 1 - 간단한 GET 요청을 처리하는 코드 생성하기**
 
-1.  在第一步中，我们提供了一个注释来描述您需要生成的代码。只需按 Enter
-    并等待几秒钟。
+'DemoResource.java' 파일로 이동하여 간단한 GET 요청을 처리하는 코드
+작성을 시작하세요.
 
-![](./media/image1.jpeg)
+1.  이 첫 번째 단계에서는 생성해야 하는 코드를 설명하는 주석을
+    제공했습니다. Enter 키를 누르고 몇 초만 기다리세요.
 
-2.  Copilot 将为您生成代码。如果您对代码不满意，请按 Ctrl
-    +Enter，它会建议多个代码选项。
+![](./media/image1.png)
 
-![](./media/image2.jpeg)
+2.  Copilot이 코드를 생성합니다. 코드가 마음에 들지 않으면 Ctrl +
+    Enter를 누르면 여러 코드 옵션이 제안됩니다.
 
-3.  .如果您对生成的代码不满意，可以再次按 Enter 键，Copilot
-    将生成一个新代码
+![](./media/image2.png)
 
-![](./media/image3.jpeg)
+3.  생성된 코드가 마음에 들지 않으면 Enter 키를 다시 누르면 Copilot이 새
+    코드를 생성합니다
 
-![](./media/image4.jpeg)
+![](./media/image3.png)
 
-![](./media/image5.jpeg)
+![](./media/image4.png)
 
-4.  转到 **test/java/com/Microsoft/hackthon/quarkus/** 并单击
-    **DemoResourceTest.java**。已经为此任务实现了单元测试。
+![](./media/image5.png)
 
-![](./media/image6.jpeg)
+4.  **test/java/com/Microsoft/hackthon/quarkus/**로 이동하고 
+    **DemoResourceTest.java**를 클릭하세요. 이 작업에 대해 구현된 단위
+    테스트가 이미 있습니다.
 
-5.  单击 **Terminal -\> New Terminal**。
+![](./media/image6.png)
 
-![](./media/image7.jpeg)
+5.  **Terminal -\> New Terminal**을 클릭하세요.
 
-6.  选择 **Gitbash**。
+![](./media/image7.png)
 
-![](./media/image8.jpeg)
+6.  **Gitbash**를 선택하세요.
 
-7.  运行 cd exercisefiles/quarkus/copilot-demo/ 命令。
+![](./media/image8.png)
 
-![](./media/image9.jpeg)
+7.  cd exercisefiles/quarkus/copilot-demo/ 명령을 실행하세요.
 
-8.  您可以使用命令 mvn test before and after 运行它，以验证 Copilot
-    生成的代码是否正确。
+![](./media/image9.png)
 
-![](./media/image10.jpeg)
+8.  Copilot에서 생성된 코드가 올바른지 확인하기 위해 mvn test 전후에
+    명령을 사용하여 실행할 수 있습니다.
 
-![](./media/image11.jpeg)
+![](./media/image10.png)
 
-![](./media/image12.jpeg)
+![](./media/image11.png)
 
-9.  完成每项任务后，请随意打包并运行您的应用程序以对其进行测试。
+![](./media/image12.png)
+
+9.  모든 작업이 끝나면 애플리케이션을 자유롭게 패키징하고 실행하여
+    테스트하세요.
 
 Package: mvn package
 
-![](./media/image13.jpeg)
+![](./media/image13.png)
 
-![](./media/image14.jpeg)
+![](./media/image14.png)
 
-10. 运行：mvn quarkus：dev
+10. mvn quarkus:dev을 실행하세요
 
-![](./media/image15.jpeg)
+![](./media/image15.png)
 
-![](./media/image16.jpeg)
+![](./media/image16.png)
 
-11. 单击拆分终端并在第二个终端中输入命令并运行
+11. 터미널 분할을 클릭하고 2nd터미널에 명령을 입력하고 실행하세요
 
 curl -v http://localhost:8080/hello?key=world
 
@@ -80,36 +85,39 @@ curl http://localhost:8080/hello
 
 curl http://localhost:8080/hello?key=world
 
-![](./media/image17.jpeg)
+![](./media/image17.png)
 
-![](./media/image18.jpeg)
+![](./media/image18.png)
 
-**任务 2 ： 日期比较**
+**작업 2: 날짜 비교**
 
-/diffdates 下的新作，用于计算两个日期之间的差异。该作应以 dd-MM-yyyy
-格式接收两个日期作为参数，并返回以天为单位的差异。
+두 날짜 간의 차이를 계산하는 /diffdates 아래의 새 작업입니다. 작업은
+dd-MM-yyyy 형식의 매개 변수로 두 개의 날짜를 수신하고 차이를 일 단위로
+반환해야 합니다.
 
-1.  键入以下注释 // 在 /diffdates 下计算两个日期之间差异的新作。该作应以
-    dd-MM-yyyy 格式接收两个日期作为参数，并返回以天为单位的差异。并按
-    Enter 键
+1.  다음 주석을 입력하세요 // /diffdates 아래에 두 날짜 간의 차이를
+    계산하는 새 작업. 작업은 dd-MM-yyyy 형식의 매개 변수로 두 개의
+    날짜를 수신하고 일 단위의 차이를 반환하고 Enter 키를 누르세요.
 
-**注意：**注释位于**DemoResource.java**文件中。
-**C：\CopiolHackathon\exercisefiles\\ quarkus\\ copilot-demo\src\main\\
+**참고:** 멘트는**DemoResource.java** 파일에
+있습니다. **C:\CopiolHackathon\exercisefiles\\ quarkus\\
+copilot-demo\src\main\\
 java\com\microsoft\hackathon\quarkus\DemoResource.java**
 
-![](./media/image19.jpeg)
+![](./media/image19.png)
 
-2.  按 Tab 键，然后再次按 Tab 键接受代码。
+2.  Tab 키를 누른 후 다시 Tab 키를 눌러 코드를 수락하세요.
 
-![](./media/image20.jpeg)
+![](./media/image20.png)
 
-3.  打开DemoResourceTest.java文件，创建验证作的单元测试。添加
-    //创建单元测试以验证计算两个日期之间差异的 /diffdates，然后按
-    Enter。
+3.  DemoResourceTest.java 파일을 열고 작업의 유효성을 검사하는 단위
+    테스트를 생성하세요. 추가 //단위 테스트를 만들어 유효성을
+    검사하세요/diffdates 두 날짜 간의 차이를 계산한 다음 Enter 키를
+    누르세요.
 
-![](./media/image21.jpeg)
+![](./media/image21.png)
 
-4.  按 Tab 接受代码。您也可以使用以下代码。
+4.  Tab 키를 눌러 코드를 수락하세요. 아래 코드를 사용할 수도 있습니다.
 
 5.  package com.microsoft.hackathon.quarkus;
 
@@ -265,63 +273,65 @@ java\com\microsoft\hackathon\quarkus\DemoResource.java**
 
 }
 
-![](./media/image22.jpeg)
+![](./media/image22.png)
 
-79. 打开终端并运行 mvn test 命令。
+79. Terminal을 열고 mvn 테스트 명령을 실행하세요.
 
-![](./media/image23.jpeg)
+![](./media/image23.png)
 
-![](./media/image24.jpeg)
+![](./media/image24.png)
 
-80. 通过运行命令 mvn package 打包解决方案
+80. mvn package 명령을 실행하여 솔루션을 패키징하세요.
 
-![](./media/image25.jpeg)
+![](./media/image25.png)
 
-![](./media/image26.jpeg)
+![](./media/image26.png)
 
-81. 运行： mvn quarkus：dev 或 mvn compile quarkus：dev
+81. mvn quarkus:dev or mvn compile quarkus:dev를 실행하세요
 
-![](./media/image27.jpeg)
+![](./media/image27.png)
 
-82. 拆分终端并运行 curl -v http://localhost:8080/diffdates
+82. 터미널을 분할하고 curl -v http://localhost:8080/diffdates 실행하세요
 
-**任务 3：验证西班牙语电话的格式**
+**작업 3: 스페인어 전화의 형식 확인하기**
 
-验证西班牙语电话号码的格式（+34 前缀，然后是 9 位数字，从 6、7 或 9
-开始）。该作应接收电话号码作为参数，如果格式正确，则返回 true，否则返回
-false。
+스페인어 전화번호의 형식 (+34 접두사, 9자리, 6, 7 또는 9로 시작)의
+유효성을 검사하세요. 작업은 전화 번호를 매개 변수로 수신하고 형식이
+올바르면 true를 반환하고 그렇지 않으면 false를 반환해야 합니다.
 
-1.  输入 //验证西班牙语电话号码的格式（+34 前缀，然后是 9 位数字，从
-    6、7 或 9
-    开始）。该作应接收一个电话号码作为参数，如果格式正确，则返回
-    true，否则返回 false，然后按 Enter。按 Tab 接受 Coilot 建议代码。
+1.  //Validate the format of a spanish phone number (+34 prefix, then 9
+    digits, starting with 6, 7 or 9)를 입력하세요. 작업은 전화 번호를
+    매개변수로 수신하고 형식이 올바르면 true를 반환하고 그렇지 않으면
+    false를 반환하고 Enter 키를 누르세요. Tab 키를 눌러 Coilot 제안
+    코드를 수락하세요.
 
-![](./media/image28.jpeg)
+![](./media/image28.png)
 
-2.  键入 // 编写单元测试以验证西班牙语电话号码的格式（+34 前缀，然后是 9
-    位数字，从 6、7 或 9
-    开始）。该作应接收电话号码作为参数，如果格式正确，则返回
-    true，否则返回 false，然后按 Enter。按 Tab 接受助手建议的单元测试
+2.  // write unit test to Validate the format of a spanish phone number
+    (+34 prefix, then 9 digits, starting with 6, 7 or 9)를 입력하세요.
+    작업은 전화 번호를 매개 변수로 수신하고 형식이 올바르면 true를
+    반환하고 그렇지 않으면 false를 반환하고 Enter 키를 누르세요. Tab
+    키를 눌러 Copilot에서 제안한 단위 테스트를 수락하세요.
 
-![](./media/image29.jpeg)
+![](./media/image29.png)
 
-3.  打开终端并运行 mvn test。
+3.  터미널을 열고 mvn test를 실행하세요.
 
-![](./media/image30.jpeg)
+![](./media/image30.png)
 
-![](./media/image31.jpeg)
+![](./media/image31.png)
 
-4.  运行 mvn 包
+4.  mvn 패키지를 실행하세요
 
-![](./media/image32.jpeg)
+![](./media/image32.png)
 
-![](./media/image33.jpeg)
+![](./media/image33.png)
 
-5.  运行 mvn quarkus：dev
+5.  mvn quarkus:dev를 실행하세요
 
-![](./media/image34.jpeg)
+![](./media/image34.png)
 
-6.  单击拆分终端并在其中一个终端中运行 -
+6.  터미널 분할을 클릭하고 터미널 중 하나에서 실행하세요 -
 
 curl -v http://localhost:8080/validatephone?phone=+34866666666
 
@@ -329,286 +339,305 @@ curl -v http://localhost:8080/validatephone?phone=+34666666667
 
 curl -v http://localhost:8080/validatephone?phone=+34666666666
 
-![](./media/image35.jpeg)
+![](./media/image35.png)
 
-**任务 4：验证西班牙语 DNI 的格式**
+**작업 4 : 스페인어 DNI의 형식 유효성 검사**
 
-验证西班牙语 DNI 的格式（8 位数字和 1 个字母）。该作应接收 DNI
-作为参数，如果格式正确，则返回 true，否则返回 false。
+스페인어 DNI(8자리 1자)의 형식을 확인하세요. 작업은 DNI를 매개 변수로
+수신하고 형식이 올바르면 true를 반환하고 그렇지 않으면 false를 반환해야
+합니다.
 
-1.  输入 // 验证西班牙语 DNI 的格式（8 位数字和 1 个字母）。该作应接收
-    DNI 作为参数，如果格式正确，则返回 true，否则返回 false。并按
-    Enter。按 Tab 接受 Copilot 建议代码。
+1.  // Validate the format of a spanish DNI (8 digits and 1 letter)를
+    입력하세요. 작업은 DNI를 매개 변수로 수신하고 형식이 올바른 경우
+    true를 반환하고 그렇지 않으면 false를 반환해야 합니다. Enter 키를
+    누르세요. Tab 키를 눌러 Copilot 제안 코드를 수락하세요.
 
-![](./media/image36.jpeg)
+![](./media/image36.png)
 
-2.  切换到
-    **CopilotDemoApplicationTests.java**。要编写单元测试来测试上述函数，请添加
-    //编写单元测试以验证西班牙语 DNI 的格式（8 位数字和 1
-    个字母）。该作应接收 DNI 作为参数，如果格式正确，则返回
-    true，否则返回 false。按 Enter 键。按 选项卡接受代码。
+2.  **CopilotDemoApplicationTests.java**로 전환하세요. 위의 함수를
+    테스트하기 위한 단위 테스트를 작성하려면, //Write unit test to
+    Validate the format of a spanish DNI (8 digits and 1 letter)를
+    추가하세요. 작업은 DNI를 매개 변수로 수신하고 형식이 올바른 경우
+    true를 반환하고 그렇지 않으면 false를 반환해야 합니다. Enter 키를
+    누르세요. 탭을 눌러 코드를 수락하세요.
 
-![](./media/image37.jpeg)
+![](./media/image37.png)
 
-3.  打开终端并运行 mvn test
+3.  터미널을 열고 mvn test 실행하세요
 
-![](./media/image38.jpeg)
+![](./media/image38.png)
 
-![](./media/image39.jpeg)
+![](./media/image39.png)
 
-4.  运行 mvn 包
+4.  mvn 패키지를 실행하세요
 
-![](./media/image40.jpeg)
+![](./media/image40.png)
 
-![](./media/image41.jpeg)
+![](./media/image41.png)
 
-5.  运行：mvn quarkus：dev
+5.  mvn quarkus:dev를 실행하세요
 
-![](./media/image42.jpeg)
+![](./media/image42.png)
 
-6.  测试：curl -v http://localhost:8080/hello/validatedni?dni=12345678A
+6.  Test: curl -v
+    <http://localhost:8080/hello/validatedni?dni=12345678A>
 
-![](./media/image43.jpeg)
+![](./media/image43.png)
 
-**任务 5：从颜色名称到十六进制代码**
+**작업 5: 색상 이름에서 16진수 코드까지**
 
-根据资源下现有的colors.json文件，给定颜色作为路径参数的名称，返回十六进制代码。如果未找到颜色，则返回
-404
+리소스 아래의 기존 colors.json 파일을 기반으로 경로 매개 변수로 색상의
+이름이 주어지면 16진수 코드를 반환하세요. 색상을 찾을 수 없으면 404를
+반환하세요.
 
-提示：使用 TDD。首先创建单元测试，然后实现代码。
+힌트: TDD를 사용하세요. 단위 테스트를 생성한 후 코드를 구현하여
+시작하세요.
 
-1.  键入 //
-    根据资源下的现有colors.json文件，给定颜色名称作为路径参数，返回十六进制代码。如果未找到颜色，则返回
-    404。并按 Enter。按 Tab 接受 Copilot 建议代码。
+1.  // Based on the existing colors.json file under resources, given the
+    name of the color as path parameter, return the hexadecimal code를
+    입력하세요. 색상을 찾을 수 없으면 404를 반환하세요. Enter 키를
+    누르세요. Tab 키를 눌러 Copilot 제안 코드를 수락하세요.
 
-![](./media/image44.jpeg)
+![](./media/image44.png)
 
-2.  切换到
-    **CopilotDemoApplicationTests.java**。要编写单元测试来测试上述函数，请添加
-    //Write unit test to Based on the existing colors.json file under
-    resources， given color as path
-    参数的名称，返回十六进制代码。如果未找到颜色，则返回 404。按 Enter
-    键。按 选项卡接受代码。
+2.  **CopilotDemoApplicationTests.java**로 전환하새요. 위의 함수를
+    테스트하기 위한 단위 테스트를 작성하려면, //Write unit test to Based
+    on the existing colors.json file under resources, given the name of
+    the color as path parameter, return the hexadecimal code를
+    추가하세요. 색상을 찾을 수 없으면 404를 반환하세요. Enter 키를
+    누르세요. 탭을 눌러 코드를 수락하세요.
 
-![](./media/image45.jpeg)
+![](./media/image45.png)
 
-3.  运行 mvn 测试
+3.  mvn test를 실행하세요
 
-![](./media/image46.jpeg)
+![](./media/image46.png)
 
-![](./media/image47.jpeg)
+![](./media/image47.png)
 
-4.  运行 mvn 包
+4.  mvn package를 실행하세요
 
-![](./media/image48.jpeg)
+![](./media/image48.png)
 
-5.  运行：mvn quarkus：dev
+5.  mvn quarkus:dev를 실행하세요
 
-![](./media/image49.jpeg)
+![](./media/image49.png)
 
-6.  测试：curl -v http://localhost:8080/hello/color?color=red
+6.  Test: curl -v http://localhost:8080/hello/color?color=red
 
-![](./media/image50.jpeg)
+![](./media/image50.png)
 
-**任务 6 ： 笑话创作者**
+**작업 6 : Jokes creator**
 
-创建一个调用 API https://api.chucknorris.io/jokes/random
-并返回笑话的新作。
+API https://api.chucknorris.io/jokes/random 를 호출하고 농담을 반환하는
+새 작업을 생성하세요.
 
-1.  键入 // 创建一个调用 API https://api.chucknorris.io/jokes/random
-    并返回笑话的新作。并按 Enter。按 Tab 接受 Copilot 建议代码。
+1.  // Create a new operation that call the API
+    https://api.chucknorris.io/jokes/random and return the joke를
+    입력하세요. Enter를 입력하세요. Tab 키를 눌러 Copilot 제안 코드를
+    수락하세요.
 
-![](./media/image51.jpeg)
+![](./media/image51.png)
 
-2.  按 Tab 接受代码
+2.  Tab 키를 눌러 코드를 수락하세요.
 
-![](./media/image52.jpeg)
+![](./media/image52.png)
 
-3.  切换到
-    **CopilotDemoApplicationTests.java**。要编写单元测试来测试上述函数，请添加
-    //创建一个调用 API
-    \[\<u\>https://api.chucknorris.io/jokes/random\</u\>\]（https://api.chucknorris.io/jokes/random）
-    并返回笑话的新作。按 Enter 键。按 选项卡接受代码。
+3.  **CopilotDemoApplicationTests.java**로 전환하세요. 위의 함수를
+    테스트하기 위한 단위 테스트를 작성하려면, add //Create a new
+    operation that call the API
+    \[\<u\>[https://api.chucknorris.io/jokes/random\</u\>\](https://api.chucknorris.io/jokes/random)](https://api.chucknorris.io/jokes/random%3c/u%3e%5d(https://api.chucknorris.io/jokes/random))를
+    추가하고 농담을 돌려주세요. Enter를 입력하세요. 탭을 눌러 코드를
+    수락하세요.
 
-![](./media/image53.jpeg)
+![](./media/image53.png)
 
-4.  按 Tab 接受代码。
+4.  Tab 키를 눌러 코드를 수락하세요.
 
-![](./media/image54.jpeg)
+![](./media/image54.png)
 
-5.  单击 Terminal -\> New Terminal -\> Gitbash 并运行以下命令
+5.  Terminal -\> New Terminal -\> Gitbash를 클릭하고 다음 명령을
+    실행하세요
 
 cd exercisefiles/quarkus/copilot-demo/
 
 mvn test
 
-![](./media/image55.jpeg)
+![](./media/image55.png)
 
-![](./media/image56.jpeg)
+![](./media/image56.png)
 
-6.  运行 mvn package 以打包您的应用程序。
+6.  mvn 패키지를 실행하여 애플리케이션 패키징하세요.
 
-![](./media/image57.jpeg)
+![](./media/image57.png)
 
-![](./media/image58.jpeg)
+![](./media/image58.png)
 
-7.  运行：mvn quarkus：dev
+7.  mvn quarkus:dev를 실행하세요
 
-![](./media/image59.jpeg)
+![](./media/image59.png)
 
-8.  测试：curl -v http://localhost:8080/hello/joke
+8.  Test: curl -v http://localhost:8080/hello/joke
 
-![](./media/image60.jpeg)
+![](./media/image60.png)
 
-**任务 7：URL 解析**
+**작업 7 : URL parsing**
 
-给定一个 url
-作为查询参数，解析它并返回协议、主机、端口、路径和查询参数。响应应采用
-Json 格式。
+쿼리 매개 변수로 URL이 주어지면 구문 분석하고 프로토콜, 호스트, 포트,
+경로 및 쿼리 매개 변수를 반환합니다. 응답은 Json 형식이어야 합니다.
 
-1.  键入 //给定一个 url
-    作为查询参数，解析它并返回协议、主机、端口、路径和查询参数。响应应采用
-    Json 格式。并按 Enter。按 Tab 接受 Copilot 建议代码。
+1.  //Given a url as query parameter, parse it and return the protocol,
+    host, port, path and query parameters를 입력하세요. 응답은 Json
+    형식이어야 합니다. Enter 키를 누르세요. Tab 키를 눌러 Copilot 제안
+    코드를 수락하세요.
 
-![](./media/image61.jpeg)
+![](./media/image61.png)
 
-![](./media/image62.jpeg)
+![](./media/image62.png)
 
-2.  切换到
-    **CopilotDemoApplicationTests.java**。要编写单元测试来测试上述函数，请添加
-    //给定 url
-    作为查询参数编写单元测试，对其进行解析并返回协议、主机、端口、路径和查询参数。响应应采用
-    Json 格式。按 Enter 键。按 选项卡接受代码。
+2.  **CopilotDemoApplicationTests.java**로 전환합니다. 위의 함수를
+    테스트하기 위한 단위 테스트를 작성하려면, //Write unit test for
+    Given a url as query parameter, parse it and return the protocol,
+    host, port, path and query parameters를 추가하세요. 응답은 Json
+    형식이어야 합니다. Enter 키를 누르세요. 탭을 눌러 코드를 수락하세요.
 
-![](./media/image63.jpeg)
+![](./media/image63.png)
 
-3.  运行 mvn 测试
+3.  mvn test를 실행하세요
 
-![](./media/image64.jpeg)
+![](./media/image64.png)
 
-![](./media/image65.jpeg)
+![](./media/image65.png)
 
-4.  运行 mvn package 以打包您的应用程序。
+4.  mvn 패키지를 실행하여 애플리케이션 패키징하세요.
 
-![](./media/image66.jpeg)
+![](./media/image66.png)
 
-5.  运行 mvn quarkus：dev
+5.  mvn quarkus:dev를 실행하세요
 
-![](./media/image67.jpeg)
+![](./media/image67.png)
 
-6.  单击拆分终端并运行 curl -v
+6.  split 터미널을 클릭하고 curl -v
     http://localhost:8080/hello/parseurl?url=https://www.google.com/search?q=quarkus
+    실행하세요.
 
-![](./media/image68.jpeg)
+![](./media/image68.png)
 
-**任务 9 ： 字数统计**
+**작업 9: 단어 계산**
 
-给定文件的路径并计算所提供单词的出现次数。路径和单词应该是查询参数。响应应采用
-Json 格式。
+파일의 경로가 주어지고 제공된 단어의 발생 횟수를 계산합니다. 경로와
+단어는 쿼리 매개 변수여야 합니다. 응답은 Json 형식이어야 합니다.
 
-1.  键入
-    //给定文件的路径并计算所提供单词的出现次数。路径和单词应该是查询参数。响应应采用
-    Json 格式。并按 Enter。按 Tab 接受 Copilot 建议代码。
+1.  //Given the path of a file and count the number of occurrence of a
+    provided word를 입력하세요. 경로와 단어는 쿼리 매개 변수여야 합니다.
+    응답은 Json 형식이어야 합니다. Enter 키를 누르세요. Tab 키를 눌러
+    Copilot 제안 코드를 수락하세요.
 
-![](./media/image69.jpeg)
+![](./media/image69.png)
 
-2.  切换到
-    **CopilotDemoApplicationTests.java**。要编写单元测试来测试上述函数，请将
-    //Write unit test
-    添加到给定文件的路径并计算所提供单词的出现次数。路径和单词应该是查询参数。响应应采用
-    Json 格式。按 Enter 键。按 选项卡接受代码。
+2.  CopilotDemoApplicationTests.java로 전환합니다. 위의 함수를
+    테스트하기 위한 단위 테스트를 작성하려면, //Write unit test to Given
+    the path of a file and count the number of occurrence of a provided
+    word를 추가하세요. 경로와 단어는 쿼리 매개 변수여야 합니다. 응답은
+    Json 형식이어야 합니다. Enter 키를 누르세요. 탭을 눌러 코드를
+    수락하세요.
 
-![](./media/image70.jpeg)
+![](./media/image70.png)
 
-3.  打开**Terminal**并运行 mvn test
+3.  **Terminal**을 열고 mvn test를 실행하세요
 
-![](./media/image71.jpeg)
+![](./media/image71.png)
 
-![](./media/image72.jpeg)
+![](./media/image72.png)
 
-4.  运行 mvn package 以打包您的应用程序。
+4.  mvn 패키지를 실행하여 애플리케이션 패키징하세요.
 
-![](./media/image73.jpeg)
+![](./media/image73.png)
 
-![](./media/image74.jpeg)
+![](./media/image74.png)
 
-5.  运行：mvn quarkus：dev
+5.  mvn quarkus:dev를 실행하세요
 
-![](./media/image75.jpeg)
+![](./media/image75.png)
 
-6.  测试：curl \<http://localhost:8080/hello/countword?path=/tmp/test.txt&word=hello
+6.  Test: curl \<http://localhost:8080/hello/countword?path=/tmp/test.txt&word=hello
 
-可以向 GitHub 助手请求项目的 curl 命令。
+프로젝트에 대한 curl 명령에 대해 GitHub copilot에 요청할 수 있습니다.
 
-![](./media/image76.jpeg)
+![](./media/image76.png)
 
-**任务 10：容器化应用程序**
+**작업10 : 애플리케이션 컨테이너화**
 
-使用提供的 Dockerfile 创建应用程序的 Docker
-映像。在这种情况下，提供了完整的内容，但为了构建、运行和测试 docker
-映像，您还将使用 Copilot 来生成命令。
+제공된 Dockerfile을 사용하여 애플리케이션의 Docker 이미지를 생성합니다.
+이 경우 전체 콘텐츠가 제공되지만 Docker 이미지를 빌드, 실행 및
+테스트하려면 Copilot도 사용하여 명령을 생성합니다.
 
-我创建了一个 DOCKER.md
-文件，我们将在其中记录构建应用程序（本机）、构建容器映像、运行容器和测试容器的步骤。
+응용 프로그램 (네이티브)을 빌드하고, 컨테이너 이미지를 빌드하고,
+컨테이너를 실행하고, 컨테이너를 테스트하는 단계를 문서화하는 DOCKER.md
+파일을 생성했습니다.
 
-1.  在 Visual Studio 代码中，按 **Ctrl +Shit + X** 搜索 **Docker**
-    并安装它。
+1.  Visual Studio 코드에서 **Ctrl + Shit + X**를 눌러 **Docker**를
+    검색하여 설치하세요.
 
-![](./media/image77.jpeg)
+![](./media/image77.png)
 
-2.  双击**Desktop Docker**并使用您的 Docker 帐户唱歌。
+2.  **Desktop Docker**를 두 번 클릭하고 Docker 계정으로 로그인하세요.
 
-![](./media/image78.jpeg)
+![](./media/image78.png)
 
-3.  按 **Ctrl +Alt+I** 打开 **Github Copilot chat**。询问 Copilot
-    如何使用提供的 Dockerfile 生成容器映像、运行容器和测试容器
+3.  **Ctrl + Alt + I**를 눌러 **Github Copilot chat**을 여세요.
+    Copilot에게 컨테이너 이미지를 빌드하고, 컨테이너를 실행하고, 제공된
+    Dockerfile을 사용하여 컨테이너를 테스트하는 방법을 물어보세요
 
-![](./media/image79.jpeg)
+![](./media/image79.png)
 
-4.  按照 Copilot 的指示。构建应用程序：在终端中运行以下命令：
+4.  Copilot의 지시를 따르세요. 애플리케이션을 빌드하세요. 터미널에서
+    다음 명령을 실행하세요:
 
 ./mvnw package -Pnative -Dquarkus.native.container-build=true
 
-![](./media/image77.jpeg)
+![](./media/image77.png)
 
-![](./media/image80.jpeg)
+![](./media/image80.png)
 
-![](./media/image81.jpeg)
+![](./media/image81.png)
 
-![](./media/image82.jpeg)
+![](./media/image82.png)
 
-![](./media/image83.jpeg)
+![](./media/image83.png)
 
-5.  **构建 Docker 镜像：**假设您的 Dockerfile 名为
-    **Dockerfile.native-micro**，您可以使用以下命令:
+5.  **Build the Docker image:** Dockerfile의 이름이
+    **Dockerfile.native-micro**라고 가정하면 다음 명령을 사용할 수
+    있습니다.:
 
 docker build -f Dockerfile.native-micro -t my-app .
 
-![](./media/image84.jpeg)
+![](./media/image84.png)
 
-6.  此命令告诉 Docker 使用当前目录（命令末尾的
-    '.'）中名为“Dockerfile.native-micro”的 Dockerfile
-    构建映像，并使用名称“my-app”标记生成的映像。
+6.  이 명령은 Docker에 현재 디렉터리(명령 끝에 있는 '.')에 있는
+    'Dockerfile.native-micro'라는 Dockerfile을 사용하여 이미지를
+    빌드하고 결과 이미지에 'my-app'이라는 이름으로 태그를 지정하도록
+    지시하세요.
 
-7.  运行 Docker 镜像：构建镜像后，您可以使用“docker run”命令运行它：
+7.  Run the Docker image: 이미지가 빌드된 후 'docker run' 명령으로
+    실행할 수 있습니다.:
 
 docker run -p 8080:8080 my-app
 
-![](./media/image85.jpeg)
+![](./media/image85.png)
 
-此命令告诉 Docker 从“my-app”映像运行容器，并将容器中的端口 8080
-映射到主机上的端口 8080。
+이 명령은 Docker에 'my-app' 이미지에서 컨테이너를 실행하고 컨테이너의
+포트 8080을 호스트 컴퓨터의 포트 8080에 매핑하도록 지시합니다.
 
-8.  **测试应用程序**：最后，要测试您的应用程序是否正常运行，您可以在浏览器中或使用
-    curl 等工具向 http://localhost:8080 发送请求：
+1.  **Test the application**: 마지막으로 애플리케이션이 올바르게
+    실행되고 있는지 테스트하기 위해 브라우저에서 또는 curl과 같은 도구를
+    사용하여 http://localhost:8080 에 요청을 보낼 수 있습니다:
 
 curl http://localhost:8080
 
-![](./media/image86.jpeg)
+![](./media/image86.png)
 
-此命令向应用程序发送 GET
-请求并打印响应。如果应用程序运行正常，则应会看到预期的响应。
+이 명령은 애플리케이션에 GET 요청을 보내고 응답을 인쇄합니다.
+애플리케이션이 올바르게 실행되고 있으면 예상 응답이 표시되어야 합니다.
 
-请注意，这些命令应该在您的终端中运行，而不是在您的 Java
-应用程序代码中运行。
-
+이러한 명령은 Java 애플리케이션 코드가 아닌 터미널에서 실행해야 합니다.
