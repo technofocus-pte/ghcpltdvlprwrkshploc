@@ -1,41 +1,47 @@
-**实验室 23 - 使用 Github Copilot Chat 生成基于 Scikit-learn 和 Python
-的决策树分类器**
+**실습 23 - Github Copilot Chat을 사용하여 Scikit-learn 및 Python을
+기반으로 의사 결정 트리 분류기 빌드하기**
 
-**介绍**
+**소개**
 
-diabetes.csv 最初来自美国国家糖尿病、消化和肾脏研究所
+diabetes.csv 원래 국립 당뇨병 및 소화기 및 신장 연구소에서 왔습니다
 
-疾病。该数据集的目的是诊断性地预测患者是否患有糖尿病，
+질병. 데이터 세트의 목적은 환자가 당뇨병에 걸렸는지 여부를 진단적으로
+예측하는 것입니다.
 
-基于数据集中包含的某些诊断测量值。设置了几个约束
+데이터 세트에 포함된 특정 진단 측정을 기반으로 합니다. 몇 가지 제약
+조건이 적용되었습니다
 
-从更大的数据库中选择这些实例。特别是这里的所有患者都是女性
+더 큰 데이터베이스에서 이러한 인스턴스를 선택하는 경우. 특히 이곳의
+환자는 모두 여성입니다
 
-至少 21 岁具有皮马印第安血统。
+21세 이상의 피마 인디언 유산 2.
 
-从diabetes.csv您可以找到几个变量，其中一些是独立的
+diabetes.csv에서 여러 변수를 찾을 수 있으며 그 중 일부는 독립적입니다
 
-（几个医学预测变量）和只有一个目标因变量（结果）。
+(여러 의학적 예측 변수) 및 하나의 목표 종속 변수(결과)만 있습니다.
 
-**任务 1：使用 Github Copilot Chat 创建笔记本的说明**
+**작업 1 : Github Copilot Chat을 사용하여 노트북을 생성하는 지침**
 
-1.  在 **Explorer in Visual Studio code** 中，展开 **datascientist**。
+1.  **Explorer in Visual Studio code**에서 **datascientist**를
+    확장하세요.
 
-2.  单击 右下角的 **Copilot** 图标，然后选择 **Github Copilot Chat。**
+2.  오른쪽 아래 모서리에 있는 **Copilot** 아이콘을 클릭하고 **Github
+    Copilot Chat**을 선택하세요**.**
 
 ![](./media/image1.png)
 
-3.  键入提示：在项目中创建新笔记本。使用命令 /newnotebook
-    并将其命名为“Diabetes Tree Classifier”
+3.  프로젝트에 새 Notebook 생성하고 프롬프트를 입력하세요. /newnotebook
+    명령을 사용하고 이름을 "Diabetes Tree Classifier"로 지정하세요.
 
 ![](./media/image2.png)
 
-4.  单击 **Terminal -\> New Terminal** 工具栏中，如下图所示。
+4.  아래 이미지와 같이 도구 모음에서 **Terminal -\> New Terminal**을
+    클릭하세요.
 
 ![](./media/image3.png)
 
-5.  从终端中选择 Gitbash，然后运行 Copilot 在 **datascientist**
-    家目录中建议的命令。 
+5.  터미널에서 **Gitbash**를 선택하고 Copilot이
+    **datascientist** 디렉터리에서 제안한 명령을 실행하세요.
 
 cd \exercisefiles\datascientist
 
@@ -45,30 +51,34 @@ touch "DiabetesTreeClassifier.ipynb"
 
 ![](./media/image5.png)
 
-6.  您应该会看到该文件是在 **datascientist** 文件夹下创建的。
+6.  **datascientist** 폴더 아래에 파일이 생성된 것을 볼 수 있습니다.
 
 ![](./media/image6.png)
 
-7.  选择新创建的笔记本以开发练习。
+7.  새로 생성한 notebook을 선택하여 연습을 개발하세요.
 
 ![](./media/image7.png)
 
-8.  使用 Copilot 和 Copilot 聊天来开发练习并支持您的学习。
+8.  연습을 개발하고 학습을 지원하려면 Copilot 및 Copilot Chat을
+    사용하세요.
 
-**锻炼**
+**연습**
 
-该项目的目标是构建一个基于 Scikit-learn 和 Python
-的决策树分类器。分类器应该能够根据以下条件预测患者是否患有糖尿病
+이 프로젝트의 목적은 Scikit-learn과 Python을 기반으로 의사 결정 트리
+분류기를 구축하는 것입니다. 분류기는 다음을 기반으로 환자가 당뇨병에
+걸렸는지 여부를 예측할 수 있어야 합니다.
 
-数据集中包含的某些诊断测量值。
+데이터 세트에 포함된 특정 진단 측정합니다.
 
-**任务 2：导入构建决策树分类器所需的库**
+**작업 2 : 의사결정 트리 분류자를 빌드하는 데 필요한 라이브러리
+가져오기**
 
-1.  点击 Notebook 内核，输入 \# 导入必要的库，包括 pandas、sklearn
-    等，然后按 Enter 并按 tab 接受代码
+1.  Notebook kernel을 클릭하고 \# pandas, sklearn 등을 포함한 필요한
+    라이브러리 가져오기를 입력하고 Enter 키를 누른 후 Tab 키를 눌러
+    코드를 수락하세요.
 
-2.  按 Tab 键。它会带你到队伍的尽头。按 Enter 键，然后再次按 Tab
-    键添加所有库。
+2.  탭 키를 누르세요. 줄 끝까지 데려다 줄 것입니다. Enter 키를 누르고
+    다시 Tab 키를 눌러 모든 라이브러리를 추가하세요.
 
 3.  \# pandas for data manipulation and analysis
 
@@ -85,32 +95,34 @@ touch "DiabetesTreeClassifier.ipynb"
 
 ![](./media/image9.png)
 
-7.  运行代码，它会要求你选择 Python 环境，选择它并运行
+7.  코드를 실행하면 Python 환경을 선택하고 선택하고 실행하라는 메시지가
+    표시됩니다.
 
 ![](./media/image10.png)
 
-8.  等到导入所有库。
+8.  모든 라이브러리를 가져올 때까지 기다리세요.
 
 ![](./media/image11.png)
 
-**任务 3：加载数据集**
+**작업 3 : 데이터세트 로드하기**
 
-1.  打开**diabetes.csv**文件并观察列名称。
+1.  열 이름을 관찰하려면 **diabetes.csv** 파일을 여세요.
 
 ![](./media/image12.png)
 
-2.  使用 pandas 或从 sklearn
-    数据集加载糖尿病数据集。打开新代码内核并输入 \# 使用 pandas 或从
-    sklearn 数据集加载糖尿病数据集 然后按 tab 接受代码
+2.  pandas를 사용하거나 sklearn 데이터 세트에서 당뇨병 데이터 세트를
+    로드합니다. 새 code kernel을 열고 \# pandas를 사용하여 또는 sklearn
+    데이터 세트에서 당뇨병 데이터 세트 로드하고 탭을 눌러 코드를
+    수락하세요.
 
-3.  打开 Github Copilot 聊天，并要求使用 pandas 或从 sklearn
-    数据集加载糖尿病数据集。.它为您提供了使用 pandas 或从 sklearn
-    数据集加载糖尿病数据集的代码
+3.  Github Copilot 채팅을 열고 pandas를 사용하거나 sklearn 데이터
+    세트에서 당뇨병 데이터 세트를 로드하도록 요청하세요. pandas 또는
+    sklearn 데이터 세트에서 당뇨병 데이터 세트로드 코드를 제공합니다.
 
 ![](./media/image13.png)
 
-4.  单击 +code 打开一个新内核，复制 Copilot
-    建议的代码并运行。您还可以使用以下代码加载数据。
+4.  +코드를 클릭하여 새 kernel을 열고 Copilot에서 제안한 코드를 복사한
+    후 실행하세요. 아래 코드를 사용하여 데이터를 로드할 수도 있습니다.
 
 5.  \# Load the Diabetes Dataset
 
@@ -126,46 +138,50 @@ touch "DiabetesTreeClassifier.ipynb"
 
 ![](./media/image14.png)
 
-**任务 4 ： 探索性数据分析**
+**작업 4 : 탐색적 데이터 분석**
 
-显示数据框中的行数和列数。显示每列的数据类型。显示每列中的缺失值数。显示每列中唯一值的数量。显示每列的基本统计信息。
+데이터 프레임의 행과 열 수를 표시하세요. 각 열의 데이터 유형을
+표시하세요. 각 열에 누락된 값의 수를 표시하세요. 각 열에 고유한 값의
+수를 표시하세요. 각 열의 기본 통계를 표시하세요.
 
-1.  打开一个新的代码内核并键入数据帧的前 5 行 \#Display 按 Enter。按
-    选项卡接受代码。您也可以使用以下代码。
+1.  새 code kernel을 열고 데이터 프레임의 처음 5개 행#Display
+    입력하세요. Enter 키를 누르세요다. 탭을 눌러 코드를 수락하세요. 아래
+    코드를 사용할 수도 있습니다.
 
-2.  \#Display 数据帧的前 5 行
+2.  \#Display the first 5 rows of the dataframe
 
 diabetes_df.head()
 
 ![](./media/image15.png)
 
-3.  打开一个新的代码内核并键入每列的数据类型 \#Display。按 Enter 键。按
-    选项卡接受代码。
+3.  새 code kernel을 열고 각 열의 데이터 유형을 \#Display
+    입력하세요. Enter 키를 누르세요. 탭을 눌러 코드를 수락하세요.
 
 ![](./media/image16.png)
 
-4.  打开一个新的代码内核，然后键入每列中缺失值 \#Display 数按 Enter。按
-    Tab 接受代码。
+4.  새 code kernel을 열고 각 열에 누락된 값의 수를 입력#Display Enter
+    키를 누르세요. 탭을 눌러 코드를 수락하세요.
 
 ![](./media/image17.png)
 
-5.  打开一个新的代码内核，然后键入每列中的唯一值 \#Display 数按
-    Enter。按 Tab 接受代码。
+5.  새 code kernel을 열고 각 열에 고유한 값의 수를 입력#Display Enter
+    키를 누르세요. 탭을 눌러 코드를 수락하세요.
 
 ![](./media/image18.png)
 
-6.  打开一个新的代码内核，并键入数据帧的汇总统计 \#Display。按 Enter
-    键。按 选项卡接受代码。
+6.  새 code kernel을 열고 데이터 프레임의 요약 통계#Display
+    입력하세요. Enter 키를 누르세요. 탭을 눌러 코드를 수락하세요.
 
-![](./media/image19.png)
+![](./media/image19.png)**작업**
+**5 : 기능 선택하기**
 
-**任务 5 ： 特征选择**
+1.  예측에 사용할 기능을 선택하세요. 모든 기능 또는 기능의 하위 집합을
+    사용할 수 있습니다.
 
-1.  选择要用于预测的特征。您可以使用所有功能或功能子集。
-
-2.  打开一个新的 Code 内核并键入 \# 将数据拆分为特征和目标变量。按 Enter
-    键。按 选项卡接受代码。您可以向 Copilot
-    聊天询问解释。您也可以使用以下代码并运行它。
+2.  새 code kernel을 열고 \# Split the data into features and target
+    variables를 입력하세요. Enter 키를 누르세요. 탭을 눌러 코드를
+    수락하세요. Copilot 채팅에 설명을 요청할 수 있습니다. 아래 코드를
+    사용하여 실행할 수도 있습니다.
 
 3.  \#split dataset in features and target variable
 
@@ -178,26 +194,29 @@ y = diabetes_df.label \# Target variable
 
 ![](./media/image20.png)
 
-6.  将数据分为训练集和测试集。训练集将用于训练模型，测试集将用于评估模型。
+6.  데이터를 훈련 세트와 테스트 세트로 나누세요. 훈련 세트는 모델을
+    훈련하는 데 사용되며 테스트 세트는 모델을 평가하는 데 사용됩니다.
 
-7.  打开一个新的代码内核并键入 \# 将数据拆分为训练集和测试集 按
-    Enter。按 Tab 接受代码。您可以向 Copilot
-    聊天询问解释。您也可以使用以下代码并运行它。
+7.  새 code kernel을 열고 \# Split the data into training and testing
+    sets를 입력하고 Enter 키를 누르세요. 탭을 눌러 코드를 수락하세요.
+    Copilot 채팅에 설명을 요청할 수 있습니다. 아래 코드를 사용하여
+    실행할 수도 있습니다.
 
-8.  \# 将数据集拆分为训练集和测试集
+8.  \# Split dataset into training set and test set
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,
 random_state=1) \# 70% training and 30% test
 
 ![](./media/image21.png)
 
-**任务 6 ： 构建决策树模型**
+**작업 6 : 의사 결정 트리 모델 구축**
 
-1.  使用训练集构建决策树模型。
+1.  훈련 집합을 사용하여 의사 결정 트리 모델을 빌드하세요.
 
-2.  打开一个新的代码内核并键入 \# 将数据拆分为训练集和测试集 按
-    Enter。按 Tab 接受代码。您可以向 Copilot
-    聊天询问解释。您也可以使用以下代码并运行它。
+2.  새 code kernel을 열고 \# Split the data into training and testing
+    sets를 입력하고 Enter 키를 누르세요. 탭을 눌러 코드를 수락하세요.
+    Copilot 채팅에 설명을 요청할 수 있습니다. 아래 코드를 사용하여
+    실행할 수도 있습니다.
 
 3.  \# Building Decision Tree Model
 
@@ -209,19 +228,19 @@ random_state=1) \# 70% training and 30% test
 
 7.  clf = clf.fit(X_train,y_train)
 
-8.  \#Predict 测试数据集的响应
+8.  \#Predict the response for test dataset
 
 y_pred = clf.predict(X_test)
 
-9.  您可以看到 ValueError。要求 Github Copilot 解决该问题。按照 Copilot
-    聊天说明并解决问题。
+9.  ValueError를 볼 수 있습니다. Github Copilot에 문제 해결을
+    요청하세요. Copilot 채팅 지침을 따르고 문제를 해결하세요.
 
 ![](./media/image22.png)
 
-10. 打开一个新的 Code 内核并输入 \# Model
-    Accuracy，分类器多久正确一次？按 Enter 键。按
-    选项卡接受代码。您可以向 Copilot
-    聊天询问解释。您也可以使用以下代码并运行它。
+10. 새 code kernel을 열고 \# Model Accuracy, the classifier is how often
+    correct 를 입력하세요. Enter 키를 누르세요. 탭을 눌러 코드를
+    수락하세요. Copilot 채팅에 설명을 요청할 수 있습니다. 아래 코드를
+    사용하여 실행할 수도 있습니다.
 
 11. \# Evaluating Model
 
@@ -229,7 +248,7 @@ y_pred = clf.predict(X_test)
 
 print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 
-13. 使用测试集评估模型。
+13. Evaluate the model using the testing set.
 
 14. \# Evaluating Model
 
