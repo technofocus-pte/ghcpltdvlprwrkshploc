@@ -1,67 +1,69 @@
-**实验室 10：使用 GitHub Actions 将项目发布到 Docker 映像**
+**실습 10: GitHub Actions을 사용하여 Docker 이미지에 프로젝트 게시하기**
 
-目标：
+목표:
 
-想象一下，您正在开发一个软件项目，想要将其打包并分发为 Docker
-映像。为了简化部署过程并确保 Docker 映像一致地发布到 GitHub
-Packages，您决定使用 GitHub Actions
-进行自动化。这将允许您设置一个工作流程，在进行更改时自动发布 Docker
-映像，确保您的项目始终是最新的并可用于部署。
+Docker 이미지로 패키징하고 배포하려는 소프트웨어 프로젝트를 개발하고
+있습니다. 배포 프로세스를 간소화하고 Docker 이미지가 GitHub Packages에
+일관되게 게시되도록 하려면 자동화를 위해 GitHub Actions를 사용하기로
+결정합니다. 이를 통해 변경 사항이 있을 때마다 Docker 이미지 게시를
+자동화하는 워크플로를 설정하여 프로젝트가 항상 최신 상태로 유지되고
+배포에 사용할 수 있도록 할 수 있습니다.
 
-在这个动手实验室中，您将:
+이 실습에서는 다음을 수행할 것입니다:
 
-- 设置 GitHub Actions 工作流文件，以自动执行生成和发布 Docker
-  映像的过程。
+- Docker 이미지를 빌드하고 게시하고 프로세스를 자동화하는 GitHub Actions
+  워크플로우 파일을 설정하기
 
-- 配置工作流以构建 Docker 镜像并将其推送到 GitHub
-  Packages，确保正确发布镜像。
+- Docker 이미지를 빌드하고 GitHub Packages에 푸시하도록 워크플로우를
+  구성하여 이미지가 올바르게 게시되었는지 확인하기
 
-- 创建拉取请求以查看所做的所有更改。
+- 풀 리퀘스트를 생성하고 변경한 내용을 모두 확인하기
 
-练习 \#1：从公共模板创建新存储库
+연습 \#1: 공개 템플릿에서 새 리포지토리를 생성하기
 
-1.  浏览到以下链接：https://github.com/skills/publish-packages
+1.  다음 링크로 이동하세요: https://github.com/skills/publish-packages
 
-在本实验中，你将使用公共模板“**skills-publish-packages**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-publish-packages**"를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-2.  选择“**Use this template**”菜单下的“**Create a new repository** ”。 
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-3.  输入以下详细信息，然后选择 **Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    - 存储库名称：**skills-publish-packages**
+    - 리포지토리 이름: **skills-publish-packages**
 
-    <!-- -->
-
-    - 存储库类型：**Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 2：创建工作流文件并配置工作流
+연습 2: 워크플로우 파일을 생성하고 워크플로우를 구성하기
 
-1.  单击刚刚创建的存储库中主导航栏上的**Code** 按钮。
+1.  방금 생성한 리포지토리의 기본 탐색 모음에서 **Code** 버튼을
+    클릭하세요.
 
 ![](./media/image4.jpeg)
 
-2.  在**main**分支下拉列表中，选择 **cd** 分支。
+2.  **main** 분기 드롭다운에서 **cd** 분기를 선택하세요.
 
 ![](./media/image5.jpeg)
 
-3.  在下一页上，导航到 **.github/workflows/** 文件夹，然后选择“**Add
-    file** ”，然后单击“**Create new file**”。
+3.  다음 페이지에서 **.github/workflows/** 플더로 이동하고 **Add
+    file**을 선택하고 **Create new file**을 클릭하세요.
 
 ![](./media/image6.jpeg)
 
 ![](./media/image7.jpeg)
 
-4.  在**Name your file** ”字段中，输入publish.yml
+4.  **Name your file** 필드에서 publish.yml을 입력하세요.
 
 ![](./media/image8.jpeg)
 
-5.  将以下代码添加到 **publish.yml** 文件中。
+5.  다음 코드를 **publish.yml** 파일에 추가하세요.
 
 6.  name: Publish to Docker
 
@@ -129,41 +131,42 @@ Packages，您决定使用 GitHub Actions
 
 tags: \${{ steps.meta.outputs.tags }}
 
-38. 将 YOURNAME 替换为您的用户名。
+38. YOURNAME을 사용자 이름으로 바꾸세요.
 
 ![](./media/image9.jpeg)
 
-39. 确保镜像名称是唯一的，单击“**Commit changes**”。
+39. 이미지 이름이 고유한지 확인하고 **Commit changes**를 클릭하세요.
 
 ![](./media/image10.jpeg)
 
-40. 再次单击“**Commit changes** ”。
+40. **Commit change를** 다시 클릭하세요.
 
 ![](./media/image11.jpeg)
 
-41. 现在创建一个拉取请求，以查看在上述练习中所做的所有更改。
+41. 이제 끌어오기 요청을 만들어 위의 연습에서 변경한 모든 내용을
+    확인합니다.
 
-42. 单击导航栏上的 **Pull Requests** 选项卡。
+42. 탐색 바에서 **Pull Requests** 탭을 클릭하세요.
 
-43. 单击“**New pull request**”。 
+43. **New pull request**를 클릭하세요.
 
 ![](./media/image12.jpeg)
 
-44. 在“**Comparing changes** ”页上，设置 **base**： main 和
-    **compare**：cd，然后单击“**Create pull request**”。
+44. **Comparing changes** 페이지에서 **base**: main 및 **compare**:cd를
+    설정하고 **Create pull request**를 클릭하세요**.**
 
 ![](./media/image13.jpeg)
 
-45. 在“**Add a title** ”页上，单击“**Create pull request**”。
+45. **Add a title** 페이지에서 **Create pull request**를 클릭하세요**.**
 
 ![](./media/image14.jpeg)
 
-46. 等待 20 秒，让作运行并查看结果。
+46. 작업이 실행될 때까지 20초 동안 기다렸다가 결과를 검토하세요.
 
 ![](./media/image15.jpeg)
 
-总结：
+요약:
 
-您现在已经获得了使用 GitHub Actions 自动发布 Docker
-映像的实践经验，从而增强了简化部署流程和维护最新项目分发的能力。
-
+이제 GitHub Actions을 사용하여 Docker 이미지 게시를 자동화하고 배포
+프로세스를 간소화하고 최신 프로젝트 배포를 유지하는 능력을 향상시키는
+실무 경험을 쌓았습니다.
