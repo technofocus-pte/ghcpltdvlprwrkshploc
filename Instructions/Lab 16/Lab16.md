@@ -1,97 +1,102 @@
-实验 16：从 Git Repository 中删除提交历史记录
+실습 16: Git 리포지토리에서 커밋 기록 제거하기
 
-客观的：
+목표:
 
-想象一下，您是开发团队的一员，从事一个项目，其中敏感信息（例如 API
-密钥或数据库凭据）被意外提交到您的 Git repository 中。使用 Git
-删除意外提交可能很棘手。
+API 키나 데이터베이스 자격 증명과 같은 민감한 정보가 실수로 Git
+리포지토리에 커밋된 프로젝트를 진행하는 개발 팀의 일원입니다. 우발적인
+커밋은 Git으로 제거하기가 까다라울 수 있습니다.
 
-在本练习中，您将：
+이 실습에서는 다음을 수행할 것입니다:
 
-- 使用意外提交的敏感数据克隆存储库。
+- 실수로 커밋된 중요한 데이터로 리포지토리 복제하기
 
-- 从克隆的存储库中删除/删除包含敏感数据的文件，然后提交删除。
+- 복제된 리포지토리에서 민감한 데이터가 포함된 파일을 제거/삭제하고
+  제거를 커밋하기
 
-- 将更改推送到 GitHub：将更新的存储库上传到 GitHub 以反映更改。
+- GitHub에 변경 푸시: 업데이트된 리포지토리를 GitHub에 업로드하여 변경
+  사항을 반영하기
 
-### **练习 #1：使用意外提交历史记录（敏感数据）创建存储库**
+### 연습 \#1: 우발적인 커밋 기록 (중요한 데이터)이 있는 리포지토리 생성하기
 
-1.  登录到你的 GitHub 帐户。
+1.  GitHub 계정으로 로그인하세요.
 
-2.  浏览到以下链接：<https://github.com/skills/change-commit-history>
+2.  다음 링크로 이동하세요:
+    <https://github.com/skills/change-commit-history>
 
-> 在本实验中，你将使用公共模板“**skills-change-commit-history**”创建存储库。
+> 이 실습에서는 공개 템플릿 “**skills-change-commit-history**”를
+> 사용하여 리포지토리를 생성할 것입니다.
 >
 > ![](./media/image1.png)
 
-3.  选择“**Use this template**”菜单下的“**Create a new repository**”。
+3.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 > ![](./media/image2.png)
 
-4.  输入以下详细信息，然后选择创建存储库。.
+4.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-- 存储库名称： **skills-change-commit-history**
+- 리포지토리 이름: **skills-change-commit-history**
 
-- 存储库类型： **Public**
+- 리포지토리 유형: **Public**
 
 ![](./media/image3.png)
 
-### 练习 \# 2：删除/删除包含敏感数据的文件（项目根目录中的 .env）
+### 연습 \#2: 중요한 데이터가 포함된 파일 (프로젝트 루트 디렉토리의 .env)을 제거/삭제하기
 
-1.  在克隆存储库的登录页面上，导航到 **Code\>Local\>HTTPS** 并复制 URL。
+1.  복제된 리포지토리의 랜딩 페이지에서 **Code**\>**Local**\>**HTTPS**로
+    이동하여 URL을 복사하세요.
 
-![](./media/image5.png)
+![](./media/image4.png)
 
-2.  打开 Windows Powershell 并输入以下命令。
+2.  Windows Powershell을 열고 다음 명령을 입력하세요.
 
 **git clone <span class="mark">\<your-repository-url\></span>**
 
-**注意**：替换为您在步骤 1 中复制的 URL。
+**참고**: 1단계에서 복사한 URL로 바꾸세요.
 
 > ![](./media/image5.png)
 
-3.  切换到您的存储库目录，输入以下命令。
+3.  리포지토리 디렉터리로 전환하고 다음 명령을 입력하세요.
 
 **+++cd “C:\Users\Admin\skills-change-commit-history”+++**
 
-**注意**：替换为存储库名称
+**참고**: 리포지토리 이름으로 바꾸세요
 
 > ![](./media/image6.png)
 
-4.  执行以下命令从根目录中删除 .env，
+4.  .env를 삭제하려면 루트 디렉터리에서 다음 명령을 실행하세요,
 
 **+++git rm .env**+++
 
 > ![](./media/image7.png)
 
-5.  提交删除 .env 文件
+5.  .env 파일의 제거를 커밋하세요
 
 **+++git commit -m "remove .env file”+++**
 
 > ![](./media/image8.png)
 >
-> **提示**：如何从 Git 历史记录中完全删除 .env
-> 文件并使用新的提交哈希重写总历史记录？
+> **팁**: Git 기록에서 .env 파일을 완전히 제거하고 새 커밋 해시로 전체
+> 기록을 다시 작성하는 방법은 무엇입니까?
 >
-> 使用以下命令可以：
+> 다음 명령을 사용하세요:
 
-- 从 Git 历史记录中完全删除 .env 文件并重写总历史记录
+- Git 기록에서 .env 파일을 완전히 제거하고 전체 기록을 다시 작성하세요
 
 > **git filter-branch --force --index-filter 'git rm --cached
 > --ignore-unmatch.env' --prune-empty --tag-name-filter cat -- --all**
 
-- 将删除推送到 GitHub
+- GitHub에 제거 푸시하세요
 
 > **git push origin --force –all**
 
-6.  将删除推送到 GitHub:
+6.  GitHub에 제거 푸시하세요:
 
 **git push**
 
 > ![](./media/image9.png)
 
-总结：
+요약:
 
-现在，您已经完成了 Git
-存储库的清理，确保敏感内容不会在存储库的历史记录中暴露。
-
+이제 Git 리포지리 정리를 완료하여 민감한 콘텐츠가 리포지토리 기록에
+노출되지 않도록 했습니다.
