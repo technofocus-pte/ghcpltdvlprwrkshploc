@@ -1,149 +1,162 @@
-**实验室 07：使用 GitHub Codespaces 和 Visual Studio Code 进行编码**
+**실습 07: GitHub Codespaces 및 Visual Studio Code를 사용하여 코딩하기**
 
-目的：
+목표:
 
-想象一下，您是一名开发人员，正在从事一个需要云托管开发环境来促进协作和简化工作流程的项目。为了提高工作效率并更有效地管理开发设置，你决定将
-GitHub Codespaces 与 Visual Studio Code
-配合使用。此设置允许您直接在云中创建和自定义开发环境，从而更轻松地与团队协作并有效管理项目配置。
+협업을 촉진하고 작업 흐름을 간소화하기 위해 클라우드 호스팅 개발 환경이
+필요한 프로젝트를 진행하는 개발자입니다. 생산성을 향상하고 개발 설정을
+더 효과적으로 관리하기 위해 Visual Studio Code와 함께 GitHub
+Codespaces를 사용하기로 결정했습니다. 이 설정을 사용하면 클라우드에서
+직접 개발 환경을 생성하고 사용자 정의할 수 있으므로 팀과 더 쉽게
+협업하고 프로젝트 구성을 효율적으로 관리할 수 있습니다.
 
-在这个动手实验室中，您将:
+이 실습에서는 다음을 수행할 것입니다:
 
-- 启动 Codespace：使用预定义的模板创建和启动 GitHub Codespace。
+- Codespace를 시작: 미리 정의된 템플릿을 사용하여 GitHub Codespace를
+  생성하고 시작하기
 
-- 自定义配置：在 codespace 中自定义项目配置以满足您的开发需求。
+- 구성 사용자 지정: 개발 요구 사항에 맞게 codespace 내에서 프로젝트
+  구성을 사용자 지정하기
 
-- 管理代码空间：有效管理和导航您的代码空间，确保开发过程顺利且有组织。
+- Codespaces 관리: Codespace를 효율적으로 관리하고 탐색하여 원활하고
+  체계적인 개발 프로세스를 보장하기
 
-- 将代码推送到存储库：练习将代码更改从 codespace 推送到 GitHub
-  存储库，从而增强将开发工作与版本控制集成的能力。
+- 리포지토리에 코드 푸시: 코드 변경 내용을 Codespace에서 GitHub
+  리포지토리로 푸시하여 개발 작업을 버전 제어와 통합하는 기능을 강화하는
+  연습하기
 
-练习 \#1：设置新存储库并启动 GitHub Codespace
+연습 \#1: 새 리포지토리를 설정하고 GitHub Codespace 스핀업하기
 
-1.  登录到你的 GitHub 帐户。
+1.  GitHub 계정에 로그인하세요.
 
-2.  浏览到以下链接：https://github.com/skills/code-with-codespaces
+2.  다음 링크로
+    이동하세요: https://github.com/skills/code-with-codespaces
 
-在本实验室中，你将使用公共模板“**skills-code-with-codespaces**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-code-with-codespaces"**를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-3.  选择“**Use this template** ”菜单下的“**Create a new
-    repository**”。  
+3.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-4.  输入以下详细信息，然后选择 **Create Repository**。
+4.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称：**skills-code-with-codespaces**
+    - 리포지토리 이름: **skills-code-with-codespaces**
 
-<!-- -->
-
-1.  存储库类型：**Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-2.  创建存储库后，单击 **Code** 按钮。
+5.  리포지토리가 생성돠면 **Code** 버튼을 클릭하세요.
 
 ![](./media/image4.jpeg)
 
-3.  在弹出窗口中选择“**Codespaces**”选项卡，然后单击“**the Create
-    codespace on main** ”按钮。
+6.  팝업 창에서 **Codespaces** 탭을 선택하고 **the Create codespace on
+    main** 버튼을 클릭하세요.
 
 ![](./media/image5.jpeg)
 
-**注意：**codespace 将在新的浏览器选项卡中打开。
+**참고:** codespace가 새 브라우저 탭에서 열립니다.
 
-4.  浏览器将显示一个基于 Web 的 VS Code
-    编辑器，并且应该存在一个终端，如下所示。
+7.  브라우저에 VS Code 웹 기반 편집기가 표시되고 아래와 같이 터미널이
+    있어야 합니다.
 
 ![](./media/image6.jpeg)
 
-5.  等待 2 分钟，让 codespace（虚拟机）自行启动。
+8.  Codespace (가상 머신)가 자체적으로 가동될 때까지 2분 동안
+    기다리세요.
 
 ![](./media/image7.jpeg)
 
-6.  导航回 skills-code-with-codespaces 存储库，然后单击“**Code**”按钮 
+9.  **skills-code-with-codespaces** 리포지토리로 다시
+    이동하고 **Code** 버튼을 클릭하세요.
 
 ![](./media/image8.jpeg)
 
-**注意：**如果未加载新创建的 codespace，请刷新页面。
+**참고:** 새로 만든 codespace가 로드되지 않으면 페이지를 새로 고치세요.
 
-7.  单击省略号 **...** 在活动 codespace 中\*\*.\*\*
+10. 활성codespace에서 줄임표**…** 를 클릭하세요\*\*.\*\*
 
-**注意**：codespace 名称可能因你的情况而异
+**참고**: The codespace이름은 경우에 따라 다를 수 있습니다.
 
 ![](./media/image9.jpeg)
 
-8.  在弹出菜单中选择“**Open in Visual Studio Code** ”。 
+11. 팝업 메뉴에서 **Open in Visual Studio Code**를 선택하세요.
 
 ![](./media/image10.jpeg)
 
-9.  弹出窗口将要求确认是否在 VS code 应用程序中打开
-    codespace。选择“**Open Visual Studio Code** ”以打开 codespace。
+12. VS code 애플리케이션에서 codespace를 열 수 있도록 확인하는 팝업이
+    표시됩니다. Codespace를 열려면 **Open Visual Studio Code**를
+    선택하세요.
 
 ![](./media/image11.jpeg)
 
-10. 系统将提示你安装 GitHub Codespaces 的扩展，单击 **Install extension
-    and open URI**。
+13. GitHub Codespaces의 확장을 설치하라는 메시지가 표시됩니다, **Install
+    extension and open URI**를 클릭하세요.
 
 ![](./media/image12.jpeg)
 
-11. 安装后，您将看到一个弹出窗口，要求提供其他权限。 **点击
+14. 설치가 완료되면 추가 권한을 요청하는 팝업이 표시됩니다. **Click
     Authorize** **Visual Studio code**
 
 ![](./media/image13.jpeg)
 
-12. 通过输入您的 GitHub 帐户密码来确认访问。
+15. GitHub 계정 암호를 입력하여 액세스 확인하세요.
 
 ![](./media/image14.jpeg)
 
-**注意：**如果您看到“Allow Windows Firewall
-permissions”弹出窗口，请允许继续。
+**참고:** Allow Windows Firewall 팝업이 표시되면 계속 진행하도록
+허용하세요.
 
-![](./media/image15.jpeg)
+![](./media/image15.jpeg)연습
+\#2: codespace에서 리포지토리로 코드 푸시하기
 
-练习 \#2：将代码从 codespace 推送到存储库
-
-1.  在 VS Code 资源管理器窗口的 codespace 中，选择index.html文件。
+1.  VS Code 탐색기 창의 codespace 내에서 index.html 파일을 선택하세요.
 
 ![](./media/image16.jpeg)
 
-2.  将 h1 标头替换为以下内容:
+2.  h1 헤더를 아래와 같이 바꾸세요:
 
 \<h1\>Hello from the codespace!\</h1\>
 
-3.  保存文件。
+3.  파일을 저장하세요.
 
-**注意：**文件应自动保存。
+**참고:** 파일이 자동 저장되어야 합니다.
 
 ![](./media/image17.jpeg)
 
-4.  使用 VS Code 终端通过输入以下提交消息来提交文件更改:
+4.  VS Code 터미널을 사용하여 다음 커미트 메시지를 입력하여 파일
+    변경사항을 커미트하세요:
 
 git commit -a -m "Adding hello from the codespace!"
 
 ![](./media/image18.jpeg)
 
-5.  将更改推送回存储库。在 VS Code 终端中，输入:
+5.  변경 내용을 리포지토리로 다시 푸시하세요. VS Code 터미널에서
+    입력하세요:
 
 git push
 
 ![](./media/image19.jpeg)
 
-6.  VS 的新代码已推送到您的存储库！
+6.  VS의 새 코드가 리포지토리로 푸시되었습니다.!
 
-7.  切换回存储库的主页并查看index.html以验证新代码是否已推送到存储库。
+7.  리포지토리의 홈페이지로 다시 전환하고 index.html를 보고 새 코드가
+    리포지토리에 푸시되었는지 확인하세요.
 
 ![](./media/image20.jpeg)
 
-8.  等待大约 20 秒，然后刷新此 GitHub Actions 将自动更新到下一步。
+8.  약 20초 동안 기다린 후 이 GitHub Actions를 새로 고치면 다음 단계로
+    자동으로 업데이트됩니다.
 
-总结：
+요약:
 
-现在，你已使用 GitHub Codespaces 和 Visual Studio Code 来
+이제 GitHub Codespaces 및 Visual Studio Code를 사용하여
 
-- 使用预定义的模板创建和启动 GitHub Codespace。
+- 미리 정의된 템플릿을 사용하여 GitHub Codespace 생성하고 시작했습니다.
 
-- 将代码推送到存储库：练习将代码更改从 codespace 推送到 GitHub
-  存储库，从而增强将开发工作与版本控制集成的能力。
-
+- 리포지토리에 코드 푸시: 코드 변경 내용을 codespace에서 GitHub
+  리포지토리로 푸시하여 개발 작업을 버전 제어와 통합하는 기능을 강화하는
+  연습했습니다.
