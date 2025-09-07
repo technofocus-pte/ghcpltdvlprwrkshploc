@@ -1,71 +1,77 @@
-**实验 09：创建工作流以对项目使用持续集成 （CI）**
+**실습 09: 프로젝트에 Continuous Integration (CI)를 사용하기 위한
+워크플로 생성하기**
 
-目标：
+목표:
 
-想象一下，您正在从事一个软件项目，其中保持高质量标准至关重要。为了确保代码保持健壮且没有错误，您决定使用
-GitHub Actions 实现持续集成 （CI）。CI
-有助于在每次对代码库进行更改时自动执行运行测试和检查代码质量的过程。通过创建
-CI 工作流程，您可以自动对 Markdown 文件进行
-lint、运行测试并立即接收有关代码质量的反馈，确保您的项目始终符合其质量标准。
+고품질 표준을 유지하는 것이 중요한 소프트웨어 프로젝트를 진행하고
+있습니다. 코드가 강력하고 오류가 없도록 하려면 GitHub Actions를 사용하여
+Continuous Integration (CI)를 구현하기로 결정합니다. CI는 코드베이스가
+변경될 때마다 테스트를 실행하고 코드 품질을 확인하는 프로세스를
+자동화하는 데 도움이 됩니다. CI 워크플로를 생성하면 Markdown 파일을
+자동으로 린트하고, 테스트를 실행하고, 코드 품질에 대한 즉각적인 피드백을
+받아 프로젝트가 품질 표준을 일관되게 충족하도록 할 수 있습니다.
 
-在这个动手实验室中，你将：
+이 실습에서는 다음을 수행할 것입니다:
 
-- 创建测试工作流程：设置专门设计用于 lint Markdown 文件并检查格式问题的
-  GitHub Actions 工作流程。
+- 테스트 워크플로 생성: Markdown 파일을 린트하고 서식 문제를 확인하도록
+  특별히 설계된 GitHub Actions 워크플로 설정하기
 
-- 配置和更新工作流程：练习配置工作流文件以定义自动 linting
-  所需的作业和步骤，并根据需要进行更新以增强其功能。
+- 워크플로우를 구성 및 업데이터: 자동화된 린팅에 필요한 작업과 단계를
+  정의하도록 워크플로 파일을 구성하고 필요에 따라 업데이트하여 기능을
+  향상시키는 연습하기
 
-- 创建拉取请求：通过创建拉取请求来集成更改，允许您测试 CI
-  工作流程并观察它如何自动执行质量检查。
+- 풀 리퀘스트 생성: 끌어오기 요청을 생성하여 변경 사항을 통합하여 CI
+  워크플로를 테스트하고 품질 검사를 자동화하는 방법을 관찰하기
 
-- 分析 CI 工作流的结果，了解它如何报告问题并确保代码质量。
+- CI 워크플로의 결과를 분석하여 문제를 보고하고 코드 품질을 보장하는
+  방법을 이해하기
 
-练习 \#1：从公共模板创建新存储库
+연습 \#1: 공개 템플릿에서 새 리포지토리를 생성하기
 
-1.  浏览到以下链接：https://github.com/skills/test-with-actions
+1.  다음 링크로 이동하세요: https://github.com/skills/test-with-actions
 
-在本练习中，你将使用公共模板“**skills-test-with-actions**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-test-with-actions**"를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-2.  选择“**Use this template** ”菜单下的“**Create a new repository**”。 
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-3.  输入以下详细信息，然后选择 **Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称：**skills-test-with-actions**
+    - 리포지토리 이름: **skills-test-with-actions**
 
-<!-- -->
-
-1.  存储库类型: **Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 \#2：添加测试工作流
+연습 \#2: 테스트 워크플로우를 추가하기
 
-1.  导航到不久前创建的存储库中的作选项卡。
+1.  얼마 전에 생성한 리포지토리의 Actions 탭으로 이동하세요.
 
 ![](./media/image4.jpeg)
 
-2.  在左侧边栏的“Actions”下，选择“**New workflow**”。
+2.  왼쪽 사이드바의 Actions에서 **New workflow**를 선택하세요.
 
 ![](./media/image5.jpeg)
 
-3.  在“**Choose a workflow** ”页上，导航到“**Simple
-    workflow**”，然后单击“**Configure**”。
+3.  **Choose a workflow** 페이지에서 "**Simple workflow**"로 이동하고
+    **Configure**를 클릭하세요.
 
 ![](./media/image6.jpeg)
 
-4.  在下一页上，将工作流重命名为
-    ci.yml，并通过删除最后两个步骤来更新工作流。
+4.  다음 페이지에서 워크플로우의 이름을 ci.yml로 변경하고 다음 두개의
+    단계를 삭제하고 워크플로우를 업데이트하세요.
 
 ![](./media/image7.jpeg)
 
 ![](./media/image8.jpeg)
 
-5.  在工作流末尾添加以下代码，然后单击右上角的 **Commit changes** 。
+5.  워크플로 끝에 다음 코드를 추가하고 오른쪽 상단의 **Commit
+    changes**를 클릭하세요.
 
 6.  \- name: Run markdown lint
 
@@ -75,34 +81,35 @@ lint、运行测试并立即接收有关代码质量的反馈，确保您的项�
 
 npx remark . --use remark-preset-lint-consistent
 
-**注意：**请确保添加到工作流的代码片段已正确缩进
+**참고:** 워크플로에 추가된 코드 조각이 제대로 들여쓰기되었는지
+확인하세요
 
 ![](./media/image9.jpeg)
 
 ![](./media/image10.jpeg)
 
-9.  在“**Commit changes** ”窗口中，选择“**Create a new branch for this
-    commit and start a pull request**”。
+9.  **Commit changes** 창에서 **Create a new branch for this commit and
+    start a pull request**를 선택하세요.
 
 ![](./media/image11.jpeg)
 
-10. 选择“**Create a new branch for this commit and start a pull
-    request**”后，“**Commit changes** ”窗口更改为“**Propose
-    Changes** ”窗口。现在点击 **Propose changes**。  
+10. Once **Create a new branch for this commit and start a pull
+    request**가 선택되면 **Commit changes** 창이 **Propose
+    Changes** 창으로 바꿉니다. 지금 **Propose changes**를 클릭하세요.
 
 ![](./media/image12.jpeg)
 
-11. 在“**Open a pull request**”的下一页上，单击“**Create pull
-    request**”。
+11. **Open a pull request**의 다음 페이지에서 **Create pull request**를
+    클릭하세요.
 
 ![](./media/image13.jpeg)
 
-12. 等待 20 秒，然后刷新此页面以分析结果。
+12. 20초 동안 기다린 후 이 페이지를 새로 고쳐 결과를 분석하세요.
 
 ![](./media/image14.jpeg)
 
-总结：
+요약:
 
-您现在已经获得了使用 GitHub Actions 进行 CI
-实践的实践经验，从而增强了您在软件项目中自动化和维护高质量标准的能力。
-
+이제 GitHub Actions을 사용하여 CI 관행에 대한 실무 경험을 쌓아
+스프트웨어 프로젝트에서 고품질 표준을 자동화하고 유지하는 능력을
+향상시켰습니다.
