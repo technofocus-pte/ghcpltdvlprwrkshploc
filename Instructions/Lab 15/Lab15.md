@@ -1,72 +1,78 @@
-**实验室 15：启用 CodeQL 以保护源代码**
+**실습 15: 소스 코드를 보안하기 위해 CodeQL 활성화하기**
 
-目的：
+목표:
 
-想象一下，您是一名软件开发人员，正在为公司处理一个关键项目，其中确保应用程序的安全是重中之重。随着人们对网络威胁和数据泄露的担忧日益增加，必须确保您的代码不存在漏洞和不安全的编码实践。在此动手实验室中，你将启用
-GitHub Code Scanning 以自动查看源代码是否存在潜在的安全问题。
+Imagine you're a software developer working on a critical project for
+your company, where ensuring the security of your application is a top
+priority. With growing concerns about cyber threats and data breaches,
+it's essential to make sure that your code is free from vulnerabilities
+and insecure coding practices. In this hands-on lab, you will enable
+GitHub Code Scanning to automatically review your source code for
+potential security issues.
 
-在此动手实验室中，你将启用 GitHub Code Scanning
-以自动查看源代码是否存在潜在的安全问题。
+In this hands-on lab, you will enable GitHub Code Scanning to
+automatically review your source code for potential security issues.
 
-练习 \#1：从公共模板创建新存储库
+Exercise \#1: Create a new repository from a public template
 
-1.  登录到你的 GitHub 帐户。
+1.  Sign in to your GitHub account.
 
-2.  浏览到以下链接：https://github.com/skills/introduction-to-codeql
+2.  Browse to the following
+    link: https://github.com/skills/introduction-to-codeql
 
-在本实验室中，你将使用公共模板“**skills-introduction-to-codeql**”创建存储库。
+In this lab you will create the repository using a public template
+"**skills-introduction-to-codeql**".
 
 ![](./media/image1.jpeg)
 
-3.  选择“**Use this template** ”菜单下的“**Create a new repository** ”。
+3.  Select **Create a new repository** under **Use this template** menu.
 
 ![](./media/image2.jpeg)
 
-4.  输入以下详细信息，然后选择**Create Repository**。
+4.  Enter the following details and select **Create Repository**.
 
-    1.  存储库名称：**skills-introduction-to-codeql**
+    - Repository name:**skills-introduction-to-codeql**
 
-<!-- -->
-
-1.  存储库类型：**Public**
+    - Repository type: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 \#2：使用 CodeQL 启用代码扫描
+Exercise \#2: Enable code scanning with CodeQL
 
-1.  在新创建的存储库的登录页上，导航到“**Settings”**选项卡。
+1.  On the landing page of the newly created repository navigate to
+    the **Settings** tab.
 
 ![](./media/image4.jpeg)
 
-2.  在左侧边栏的“**Security**”部分下，选择“**Code security and
-    analysis**”。 
+2.  Under the **Security** section on the left sidebar, select **Code
+    security and analysis**.
 
 ![](./media/image5.jpeg)
 
-3.  向下滚动到标题为“Code
-    scanning”的部分，单击“**Set-up** ”下拉菜单，然后选择“**Default**”。
+3.  Scroll down to the section titled Code scanning, click
+    the **Set-up** dropdown menu and choose **Default**.
 
 ![](./media/image6.jpeg)
 
-4.  选择以下选项，然后单击**“Enable CodeQL”**
+4.  Select the following options and click **Enable CodeQL**
 
-    1.  要分析的语言：这些是 CodeQL
-        将扫描的语言。在这种情况下，我们将使用 Python 进行扫描。
+    - Languages to analyze: These are the languages that will be scanned
+      by CodeQL. In this case, we will be scanning in Python.
 
-    2.  查询套件：CodeQL
-        查询打包在称为“套件”的捆绑包中。此部分允许您选择要使用的查询套件。在本练习中，我们将此集保留为默认值。
+    - Query suites: CodeQL queries are packaged in bundles called
+      "suites". This section allows you to choose which query suite to
+      use. We'll leave this set as Default for this exercise.
 
-    3.  事件：本部分告知 CodeQL
-        何时扫描。在这种情况下，它设置为扫描对主分支的任何拉取请求。
+    - Events: This section tells CodeQL when to scan. In this case, it's
+      set to scan on any pull request to the main branch.
 
 ![](./media/image7.jpeg)
 
-5.  等待大约 20 秒，然后刷新此页面以继续。
+5.  Wait about 20 seconds then refresh this page to proceed further.
 
 ![](./media/image8.jpeg)
 
-总结：
+Summary:
 
-现在，你已启用 GitHub Code Scanning
-来自动查看源代码是否存在潜在的安全问题。
-
+Now you have enabled GitHub Code Scanning to automatically review your
+source code for potential security issues.
