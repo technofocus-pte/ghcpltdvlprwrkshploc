@@ -1,78 +1,89 @@
-**实验室 12：使用 GitHub Actions 和 Microsoft Azure 创建部署工作流**
+**실습 12: GitHub Actions 및 Microsoft Azure를 사용하여 배포
+워크플로우를 생성하기**
 
-目标：
+목표:
 
-想象一下，您正在管理一个具有复杂部署要求的软件项目，该项目涉及多个环境，包括暂存和生产。为了简化部署过程并确保一致性，您决定使用
-GitHub Actions 和 Microsoft Azure
-自动执行部署过程。通过配置部署工作流，可以根据应用于拉取请求的标签设置触发器，这些触发器将自动处理启动环境、部署到暂存和拆除环境。这种方法有助于保持效率并减少部署管道中的手动干预。
+스테이징 및 프로덕션을 포함한 여러 환경을 포함하는 복잡한 배포 요구
+사항이 있는 소프트웨어 프로젝트를 관리하고 있습니다. 배포 프로세스를
+간소화하고 일관성을 보장하기 위해 GitHub Actions 및 Microsoft Azure를
+사용하여 자동화하기로 결정합니다. 배포 워크플로우를 구성하면 풀
+리퀘스트에 적용된 레이블을 기반으로 트리거는 환경 스핀업, 스테이징에
+배포 및 환경 해체를 자동으로 처리합니다. 이 접근 방식은 효율성을
+유지하고 배포 파이프라인에서 수동 개입을 줄이는 데 도움이 됩니다.
 
-在这个动手实验室中，您将:
+이 실습에서는 다음을 수행할 것입니다:
 
-- 将工作流配置为在将特定标签应用于拉取请求时使用 Azure
-  资源自动创建和设置环境。
+- 풀 리퀘스트에 특정 레이이 적용될 때 Azure 리소스를 사용하여 환경을
+  자동으로 생성하고 설정하도록 워크플로우를 구성하기
 
-- 在工作流中设置部署任务，以便在收到相应的标签后自动将项目部署到暂存环境。
+- 적절한 레이블을 받으면 프로젝트를 스테이징 환경에 자동으로 배포하도록
+  워크플로우 내에서 배포 작업을 설정하기
 
-练习 1：创建新存储库
+연습 1: 새 리포지토리를 생성하기
 
-1.  浏览到以下链接：https://github.com/skills/deploy-to-azure
+1.  다음 링크로 이동하세요: <https://github.com/skills/deploy-to-azure>
 
-在本实验室中，你将使用公共模板 **skills-deploy-to-azure** 创建存储库
+이 실습에서는 공개 템플릿 **skills-deploy-to-azure**를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-2.  选择“**Use this template** ”菜单下的“**Create a new repository**”。 
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-3.  输入以下详细信息，然后选择**Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    - 存储库名称：**skills-deploy-to-azure**
+    - 리포지토리 이름: **skills-deploy-to-azure**
 
-    <!-- -->
-
-    - 存储库类型：**Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 2：配置GITHUB_TOKEN权限
+연습 2: GITHUB_TOKEN 권한 구성하기
 
-在每次工作流运行开始时，GitHub
-会自动创建一个唯一的GITHUB_TOKEN机密以在工作流中使用。我们需要确保此令牌具有所需的权限。
+각 워크플로우 실행이 시작될 때 GitHub는 워크플로우에서 사용할 고유한
+GITHUB_TOKEN 비밀을 자동으로 생성합니다. 이 토큰에 필요한 권한이 있는지
+확인해야 합니다.
 
-1.  在新创建的存储库的登录页面上，转到**“Settings \> Actions \> General**”。
+1.  새로 생성된 리포지토리의 랜딩
+    페이지에서 **Settings** \> **Actions** \> **General**로 이동하세요.
 
 ![](./media/image4.jpeg)
 
 ![](./media/image5.jpeg)
 
-2.  向下滚动到 **Workflow permissions** 并启用 **Read and write
-    permissions** ，然后单击 **Save**。
+2.  **Workflow permissions**까지 아래로 스크롤하여 **Read and write
+    permissions**을 활성화하고 **Save**를 클릭하세요.
 
 ![](./media/image6.jpeg)
 
-**注意：**这是工作流将映像上传到容器注册表所必需的。
+**참고:** 이는 워크플로우가 이미지를 컨테이너 레지스트리에 업로드하는 데
+필요합니다.
 
-练习 3：根据标签配置触发器
+연습 3: 레이블을 기반으로 트리거 구성하기
 
-1.  在导航栏上，转到“**Actions ”**选项卡
+1.  탐색 바에서 **Actions** 탭으로 이동하세요.
 
 ![](./media/image7.jpeg)
 
-2.  在 **Actions** 页面上，单击左侧导航窗格中的 **New workflow**。 
+2.  **Actions** 페이지에서 왼쪽의 탐색 창에서 **New workflow**를
+    클릭하세요.
 
 ![](./media/image8.jpeg)
 
-3.  在“**Choose a workflow**”页上，搜索 \\**simple
-    workflow**\\，然后单击“**Configure**” 
+3.  **Choose a workflow** 페이지에서 \\**simple workflow**\\를
+    검색하고 **Configure**를 클릭하세요.
 
 ![](./media/image9.jpeg)
 
-4.  将工作流命名为 deploy-staging.yml
+4.  워크플로우 이름을 deploy-staging.yml로 입력하세요
 
 ![](./media/image10.jpeg)
 
-5.  在编辑器页面中，编辑文件的内容并删除所有触发器和作业。生成的文件如下所示。
+5.  편집기 페이지에서 파일의 내용을 편집하고 모든 트리거 및 작업을
+    제거하세요. 결과 파일을 아래와 같이 표시됩니다.
 
 6.  name: Stage the app
 
@@ -92,31 +103,31 @@ if: contains(github.event.pull_request.labels.\*.name, 'stage')
 
 ![](./media/image11.jpeg)
 
-**注意：**请确保添加的代码片段已正确缩进，如屏幕截图所示
+**참고:** 추가된 코드 조각이 스크린샷과 같이 제대로 들여쓰기되었는지
+확인하세요.
 
-13. 单击页面右上角的“**Commit changes** ”按钮。 
+13. 페이지 오른쪽 상단의 **Commit changes** 버튼을 클릭하세요.
 
 ![](./media/image12.jpeg)
 
-14. 在“**Commit Changes**”窗口中，选择“**Create a new branch for this
-    commit and start a pull request**”。 
+14. **Commit Changes** 창에서 **Create a new branch for this commit and
+    start a pull request**를 선택하세요.
 
-**注意：Commit changes**  窗口更改为“**Propose Changes**”。
+**참고:** **Commit changes** 창이 **Propose Changes**로 변경합니다.
 
-将 **new branch** 命名为 **staging-workflow**，然后单击“**Propose
-changes**”。
+**new branch**를 **staging-workflow**로 입력하고 **Propose changes**를
+클릭하세요.
 
 ![](./media/image13.jpeg)
 
-15. 在“**Open a pull request** ”的下一页上，单击“**Create pull
-    request**”。
+15. **Open a pull request**의 다음 페이지에서 **Create pull request**를
+    클릭하세요.
 
 ![](./media/image14.jpeg)
 
-16. 等待 20 秒，让作运行并查看结果。
+16. 작업이 실행될 때까지 20초 동안 기다렸다가 결과를 검토하세요.
 
-总结：
+요약:
 
-现在，您已经获得了使用 GitHub Actions
-自动化部署工作流程的实践经验，从而提高了部署过程的效率和可靠性。
-
+이제 GitHub Actions를 사용하여 배포 워크플로우를 자동화하여 배포
+프로세스의 효율성과 안정성을 향상시키는 실무 경험을 쌓았습니다.
