@@ -1,2 +1,1 @@
-# ghcpltdvlprwrkshploc
-Github Copilot For developer (GH300)
+# Github Copilot For developer (GH300)
