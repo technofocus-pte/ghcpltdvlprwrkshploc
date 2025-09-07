@@ -1,68 +1,77 @@
-**实验 11：使工作流可重用并使用矩阵策略运行多个版本的节点**
+**실습 11: 워크플로우를 재사용 가능하게 생성하고 매트릭스 전략을
+사용하여 여러 버전의 노드을 실행하기**
 
-目标：
+목표:
 
-想象一下，您正在管理一个项目中的多个存储库，这些存储库共享构建、测试和部署等任务的通用工作流。为了避免冗余并在这些存储库之间保持一致性，您决定使用
-GitHub Actions
-实现可重用的工作流。通过利用工作流调用触发器，您可以集中工作流配置，确保在一个地方进行更改并自动应用于所有相关存储库。此外，您将利用矩阵策略来测试具有多个版本的Node.js的工作流程，从而提高兼容性和可扩展性。
+빌드, 테스트 및 배포와 같은 작업에 대한 공통 워크플로우를 공유하는
+프로젝트 내에서 여러 리포지토리를 관리하고 있습니다. 중복성을 방지하고
+이러한 리포지토리 간게 일관성을 유지하려면 GitHub Actions을 사용하여
+재사용 가능한 워크플로우를 구현하기로 결정합니다. 워크플로우 호출
+트리거를 활용하면 워크플로우 구성을 중앙 집중화하여 변경 사항이 한
+곳에서 이루어지고 모든 관련 리포지토리에 자동으로 적용되도록 할 수
+있습니다. 또한 매트릭스 전략을 활용하여 여러 버전의 Node.js로
+워크플로우를 테스트하고 호환성과 확장성을 향상시킵니다.
 
-在这个动手实验室中，你将：
+이 실습에서는 다음을 수행할 것입니다:
 
-- 使用 workflow_call
-  触发器使您的工作流可在多个存储库中重用，从而减少配置冗余。
+- workflow_call 트리거를 사용하여 여러 리포지토리에서 워크플로를
+  재사용할 수 있도록 하여 구성 중복성을 줄이기
 
-- 导航到存储库，更新工作流文件以包含workflow_call触发器，然后提交更改。
+- 리포지토리로 이동하여 workflow_call 트리거를 포함하도록 워크플로
+  파일을 업데이트하고 변경 사항을 커밋하기
 
-- 创建拉取请求以比较更改和异常。
+- 풀 리퀘스트를 생성하고 변경 내용과 예외를 비교하기
 
-练习 \#1：创建一个新存储库。
+연습 \#1: 새 리포지토리를 생성하기
 
-1.  浏览到以下链接：https://github.com/skills/reusable-workflows
+1.  다음 링크로 이동하세요: https://github.com/skills/reusable-workflows
 
-在本练习中，你将使用公共模板“**skills-reusable-workflows**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-reusable-workflows**"를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-2.  选择“**Use this template** ”菜单下的“**Create a new
-    repository** ”。 
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image2.jpeg)
 
-3.  输入以下详细信息，然后选择 **Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称：**skills-reusable-workflows**
+    - 리포지토리 이름: **skills-reusable-workflows**
 
-<!-- -->
-
-1.  存储库类型: **Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image3.jpeg)
 
-练习 \#2：将workflow_call触发器添加到工作流
+연습 \#2: 워크플로우에 workflow_call 트리거를 추가하기
 
-1.  在新创建的存储库的登录页上，导航到“**Code**”选项卡\*\*。
+1.  새로 생성한 리포지토리의 랜딩 페이지에서 **Code** 탭으로
+    이동하세요\*\*.\*\*
 
 ![](./media/image4.jpeg)
 
-2.  从 main 分支下拉列表中，选择 “**reusable-workflow**”分支。
+2.  main 분기 드롭다운에서 **reusable-workflow** 분기를 선택하세요.
 
 ![](./media/image5.jpeg)
 
-3.  更改分支后，导航到 **.github/workflows/** 文件夹，然后选择
-    **reusable-workflow.yml** 文件。
+3.  분기를 변경한 후 **.github/workflows/** 폴더로 이동한 후
+    **reusable-workflow.yml** 파일을 선택하세요.
 
 ![](./media/image6.jpeg)
 
 ![](./media/image7.jpeg)
 
-4.  在 **reusable-workflow.yml** 文件编辑器上，选择 **Edit in place**。
+4.  **reusable-workflow.yml** 파일 편집기에서 **Edit in place**를
+    선택하세요.
 
 ![](./media/image8.jpeg)
 
-5.  将 **workflow_dispatch** 事件触发器替换为 **workflow_call**
-    事件触发器，然后单击“**Commit changes**”。
+5.  **workflow_dispatch** 이벤트 트리거를 **workflow_call** 이벤트
+    트리거로 바꾸고 **Commit changes**를 클릭하세요.
 
-**注意：**将 **Line \#3** 到 **Line \# 8** 的代码块替换为下面的代码块
+**참고**: **줄 \#3**에서 **줄 \#8**까지의 코드 블록을 아래 블록으로
+바꾸세요
 
 on:
 
@@ -78,29 +87,29 @@ type: string
 
 ![](./media/image9.jpeg)
 
-6.  在“**Commit changes** ”窗口中，单击“**Commit changes**”。
+6.  **Commit changes**창에서 **Commit changes**를 클릭하세요.
 
 ![](./media/image10.jpeg)
 
-练习 \#3：创建拉取请求以查看上一个练习中所做的更改
+연습 \#3: 이전 연습에서 변경한 내용을 확인하려면 풀 리퀘스트를 생성하기
 
-1.  选择“**Pull requests** ”选项卡，然后单击“**New pull request**”。 
+1.  **Pull requests** 탭에서 **New pull request**를 클릭하세요.
 
 ![](./media/image11.jpeg)
 
-2.  在“**Comparing changes page**”页上，将 **base** 设置为 **main**，将
-    **compare** 设置为 **reusable-workflow**。 
+2.  **Comparing changes page**에서 **base**를 **main**로
+    설정하고 **compare**를 **reusable-workflow**로 설정하세요.
 
 ![](./media/image12.jpeg)
 
-3.  在“**Open a pull request** ”页上，单击“**Create pull request**”。
+3.  **Open a pull request** 페이지에서 **Create pull request**를
+    클릭하세요.
 
 ![](./media/image13.jpeg)
 
-4.  等待 20 秒，让作运行并查看结果。
+4.  작업이 실행될 때까지 20초 동안 기다렸다가 결과를 검토하세요.
 
-总结：
+요약:
 
-现在，你已经获得了创建高效、可重用的工作流并使用 GitHub Actions
-针对各种环境进行优化的实践经验。
-
+이제 GitHub Actions를 사용하여 효율적인 재사용 가능한 워크플로우를
+생성하고 다양한 환경에 맞게 최적화하는 실무 경험을 쌓았습니다.
