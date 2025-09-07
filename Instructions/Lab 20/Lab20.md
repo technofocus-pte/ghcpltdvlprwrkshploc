@@ -1,14 +1,17 @@
-# **实验室 20 - 使用 Nodejs 激活 GitHub Copilot**
+# **실습 20 - Nodejs를 사용하여 GitHub Copilot을 활성화**
 
-**客观的：**
+**목표:**
 
-本实验室旨在帮助了解用于运行实验室以评估 Copilot 可行性的演示项目。
+이 실습은 Copilot 실행 가능성을 평가하기 위해 실습을 실행하기 위한 데모
+프로젝트를 이해하는 데 도움이 됩니다.
 
-在执行本练习之前，让我们先安装必要的软件包并设置环境。
+이 실습을 실행하기 전에 먼저 필요한 소프트웨어 패키지를 설치하고 환경을
+설정해 보겠습니다.
 
-**任务 0：安装和设置环境**
+**작업 0: 환경을 설치하고 설정하기**
 
-您需要下载并安装以下软件包来设置环境以执行本练习。
+이 실습을 실행하기 위한 환경을 설정하려면 다음 소프트웨어 패키지를
+다운로드하여 설치해야 합니다.
 
 1.  Node.js
 
@@ -16,91 +19,93 @@
 
 <!-- -->
 
-1.  打开 Edge 浏览器。
+1.  Edge 브라우저를 여세요.
 
 > ![](./media/image1.png)
 
-2.  在浏览器 URL 字段中，复制粘贴链接以将软件包下载到实验室 VM。
+2.  브라우저 URL 필드에서 링크를 복사하여 붙여넣어 랩 VM에 소프트웨어
+    패키지를 다운로드하세요.
 
 <!-- -->
 
-1.  Node.js和 MVN 🡪
+1.  Node.js and mvn 🡪
     <https://nodejs.org/dist/v20.16.0/node-v20.16.0-x64.msi>
 
-> b.mocha （无需下载）
->
-> **注意**：默认情况下，包将保存在**downloads**文件夹中。
+2.  mocha (no download is required)
+
+> **참고**: 기본적으로 패키지는 **downloads** 폴더에 저장 됩니다.
 >
 > ![](./media/image2.png)
 
-1.  **安装Node.js和 mvn**
+1.  **Install Node.js and mvn**
 
 <!-- -->
 
-1.  转到 **Downloads**（**C：\Users\Admin\Downloads**）
-    文件夹，然后双击node-v20.16.0-x64.msi **。**
+1.  **Downloads** (**C:\Users\Admin\Downloads**) 폴더로 이동하고
+    **node-v20.16.0-x64.msi**를 두번 클릭하세요.
 
 > ![](./media/image3.png)
 
-2.  在“Node.js setup wizard”窗口中，单击 **Next**。
+2.  “Node.js setup wizard” 창에서 **Next**를 클릭하세요.
 
 > ![](./media/image4.png)
 
-3.  接受 EULA 并单击 **Next**。
+3.  **EULA**를 동의하고 **Next**를 클릭하세요.
 
 > ![](./media/image5.png)
 
-4.  保留默认目标文件夹，然后单击“**Next**”。
+4.  기본 대상 폴더를 유지하고 **Next**를 클릭하세요.
 
 > ![](./media/image6.png)
 
-5.  单击“**Add to the PATH**”，然后单击“**Next**”。
+5.  **Add to the PATH**를 클릭하고 **Next**를 클릭하세요.
 
 > ![](./media/image7.png)
 
-6.  在“**Tools for native
-    Modules**”窗口中，选中该**复选框**并单击“Next”。
+6.  **Tools for native Module** 창에서 **check box**를 선택하고 Next 를
+    클릭하세요.
 
 > ![](./media/image8.png)
 
-7.  单击 **Install**。
+7.  **Install**을 클릭하세요.
 
 > ![](./media/image9.png)
 >
-> 注意：如果您看到 **User Access Control** 弹出窗口，请单击 **Yes**
-> 继续。
+> 참고: **User Access Control** 팝업이 표시되면 **Yes를** 클릭하여
+> 계속하세요**.**
 
-8.  完成后点击 **Finish**。
+8.  완료되면 **Finish** 를 클릭하세요.
 
 > ![](./media/image10.png)
 
-9.  **Cmd** 终端打开。按任意键继续..
+9.  **Cmd** 터미널이 열립니다. 계속하려면 아무 키나 누르세요.
 
 > ![](./media/image11.png)
 >
-> 注意：按下某个键后，您可能会看到延迟。请等待一段时间以继续安装。
+> 참고: 키를 누른 후 지연이 발생할 수 있습니다. 설치를 진행하려면 잠시
+> 기다려 주세요.
 
-10. 单击“**Yes**”在 UAC 窗口中继续。
+10. 예를 클릭하여 UAC 창에서 계속하세요.
 
 > ![](./media/image12.png)
 
-11. **Windows Powershell** 打开，显示安装详细信息。
+11. **Windows Powershell** 이 열리고 설치 세부 정보가 표시됩니다.
 
 > ![](./media/image13.png)
 
-12. 安装完成后，键入 **Enter** 退出 PowerShell。
+12. 설치가 완료되면 **Enter를 입력** 하여 PowerShell을 종료하세요.
 
 > ![](./media/image14.png)
 
-2.  **安装 mocha**
+2.  **Install mocha**
 
 <!-- -->
 
-1.  打开命令提示符
+1.  command prompt를 여세요
 
 > ![](./media/image15.png)
 
-2.  首先运行以下命令。
+2.  먼저 다음 명령을 실행하세요.
 
 > +++npm install --global mocha+++
 >
@@ -108,7 +113,7 @@
 >
 > ![](./media/image17.png)
 
-3.  接下来运行以下命令
+3.  다음으로 다음 명령을 실행하세요
 
 > +++npm install axios+++
 >
@@ -116,20 +121,22 @@
 >
 > ![](./media/image19.png)
 >
-> 现在您已经完成了**mocha** 的安装。关闭终端以继续安装其他软件包。
+> 이제 **mocha** 설치가 완료되었습니다.터미널을 닫아 다른 패키지 설치를
+> 진행하새요.
 
-## **练习 1：简介**
+## **연습 1: 소개**
 
-1.  在 Visual Studio 中， 从 exercisefiles -\>
-    节点打开**nodeserver.js**。
+1.  Visual Studio에서 exercisefiles -\> node에서 **nodeserver.js**를
+    여세요.
 
 ![](./media/image20.png)
 
-2.  我们需要开始为节点编码。js
-    服务器，该服务器将公开一个方法调用“get”，该调用将返回查询字符串中传递的键的值。让我们使用
-    Copilot 来帮助我们解决这个问题。
+2.  노드에 대한 코딩을 시작해야 합니다.. 쿼리 문자열에 전달된 키의 값을
+    반환하는 메서드 호출 "get"을 노출하는 js 서버입니다. Copilot을
+    사용하여 이 작업을 도와드리겠습니다.
 
-3.  按 **Ctrl+I** 并粘贴以下命令，让 Copilot 生成代码并点击 **Send**。
+3.  **Ctrl+I**를 누르고 Copilot이 코드를 생성하도록 아래 명령을 붙여넣고
+    **Send**를 누르세요.
 
 **// write a nodejs server that will expose a method call "get" that
 will return the value of the key passed in the query string**
@@ -146,40 +153,44 @@ will return the value of the key passed in the query string**
 
 ![](./media/image21.png)
 
-4.  Copilot 生成代码并显示。单击 **“Accept”** 以接受它。
+4.  Copilot이 코드를 생성하고 표시합니다. **Accept**을 클릭하여
+    수락하세요.
 
 ![](./media/image22.png)
 
-5.  右键单 **node** 点文件夹，然后选择在集成终端中打开。
+5.  Node 폴더를 마우스 오른쪽 버튼으로 클릭하고 **Open in Integrated
+    Terminal**를 선택하세요.
 
 ![](./media/image23.png)
 
-6.  打开终端后，从中执行以下命令。
+6.  터미널이 열리면 터미널에서 아래 명령을 실행하세요.
 
 !!**mocha test.js**!!
 
-7.  您应该得到的结果为 **1 Passing**，如下面的屏幕截图所示。
+7.  아래 스크린샷과 같이 **1 Passing**으로 결과를 얻어야 합니다.
 
 ![](./media/image24.png)
 
-8.  这是nodeserver.js中方法的单元测试，它已通过。
+8.  이것은 nodeserver.js의 메서드에 대한 단위 테스트이며 통과했습니다.
 
-9.  我们将继续使用 Copilot 向服务器添加不同的方法。
+9.  Copilot을 사용하여 서버에 다양한 방법을 계속 추가할 것입니다.
 
-## **练习 2：构建新功能**
+## **연습 2: 새로운 기능 구축하기**
 
-该练习包括使用 Nodejs 构建一个 Web
-服务器，该服务器可满足各种功能的请求。
+이 연습은 다양한 기능의 요청을 제공하는 Nodejs를 사용하여 웹 서버를
+구축하는 것으로 구성됩니다.
 
-1.  添加 服务器必须参与的 **DaysBetweenDates** 功能请求。
+1.  서버가 참석해야 하는 **DaysBetweenDates** 기능 요청을 추가하세요.
 
-2.  在 **if** 条件 **– pathname == '/get'** 结束后按 **Enter**。
+2.  **if** 조건 – **pathname == '/get'**이 끝난 후 **Enter** 키를
+    누르세요.
 
-**请注意：** 请参阅红色突出显示的大括号，您需要按 **Enter** 键
+**참고: Enter** 키를 눌러야 하는 빨간색 강조 표시의 중괄호를 참조하세요.
 
 ![](./media/image25.png)
 
-3.  按 **Ctrl+I** 打开 Copilot 内联功能，输入以下内容并单击 **Send**。
+3.  **Ctrl+I**를 눌러 Copilot 인라인 기능을 열고 다음을 입력한 후
+    **Send**를 클릭하세요.
 
 > **/DaysBetweenDates:**
 >
@@ -220,15 +231,15 @@ res.end(Math.round(difference_ms / 86400000) + " days");
 
 ![](./media/image26.png)
 
-4.  Copilot 生成代码。点击 **Accept**
-    接受代码。请注意，生成的代码是请求中的 **else if** 块，其中是
-    **DaysBetweenDates**。
+4.  Copilot이 코드를 생성합니다. **Accept**를 클릭하여 코드를
+    수락하세요. 생성된 코드는 요청에서 **DaysBetweenDates**인 **else
+    if** 블록입니다.
 
 ![](./media/image27.png)
 
-5.  单击 **DaysBetweenDates** 块后的 **Enter**。
+5.  **DaysBetweenDates** 블록 뒤에 **Enter**를 클릭하세요.
 
-6.  输入下面的评论块并按 **Enter**。
+6.  아래 댓글 블록을 입력하고 **Enter** 키를 누르세요.
 
 **/\***
 
@@ -280,13 +291,15 @@ res.end("invalid");
 
 ![](./media/image28.png)
 
-7.  Copilot 生成代码。单击 **“Accept”** 以接受代码。
+7.  Copilot이 코드를 생성합니다. **Accept**를 클릭하여 코드를
+    수락하세요.
 
 ![](./media/image29.png)
 
-8.  单击 **Validatephonenumber** 块后的 **Enter** 以添加下一个代码块。
+8.  **Validatephonenumber** 블록 뒤에 **Enter**를 클릭하여 다음 코드
+    블록을 추가하세요.
 
-9.  将以下文本复制并粘贴到 js 文件中。
+9.  아래 텍스트를 복사하여 js 파일에 붙여넣으세요.
 
 > **/\***
 >
@@ -338,16 +351,16 @@ res.end("invalid");
 >
 > ![](./media/image30.png)
 
-10. 粘贴上述内容后，Copilot 会生成代码，该代码显示在评论下方。点击
-    **Accept** 接受代码。
+10. 위의 내용이 붙여넣기되면 Copilot은 주석 바로 아래에 표시되는 코드를
+    생성합니다. **Accept**를 클릭하여 코드를 수락하세요.
 
 ![](./media/image31.png)
 
-11. 从左侧导航窗格打开 Copilot 聊天。
+11. 왼쪽 탐색 창에서 Copilot 채팅을 여세요.
 
 ![](./media/image32.png)
 
-12. 将以下内容粘贴到聊天中，然后单击“**Send”**按钮。
+12. 아래 내용을 채팅에 붙여넣고 **Send** 버튼을 클릭하세요.
 
 > **/ReturnColorCode:**
 >
@@ -397,41 +410,42 @@ res.end(colorFound);
 
 }
 
-> **注意：** 默认情况下，Copilot 将使用打开的文件作为上下文来生成建议。
+> **참고:** Copilot은 기본적으로 제안을 생성하기 위해 열려 있는 파일을
+> 컨텍스트로 사용합니다.
 
 ![](./media/image33.png)
 
-13. 将光标保留在 **ValidateSpanishDNI**
-    块之后，然后单击聊天中的“插入光标处”图标。这**会将** Copilot
-    生成的代码从聊天复制到上述位置的服务器 js 文件。
+13. **ValidateSpanishDNI** 블록 뒤에 커서를 놓고 채팅에서 커서에 삽입
+    아이콘을 클릭하세요. 이렇게 하면 Copilot이 생성한 코드가 채팅에서
+    언급된 위치의 서버 js 파일로 **복사됩니다**.
 
 ![](./media/image34.png)
 
-14. 检查是否有错误。在此生成的代码中，存在错误，因为 else if
-    块之间有一个常量声明。
+14. 오류가 있는 경우 확인하세요. 이 생성된 코드에서는 else if 블록
+    사이에 상수 선언이 있기 때문에 오류가 있습니다.
 
 ![](./media/image35.png)
 
-15. 按 **Ctrl+I** 打开 Copilot Inline，输入 !!**/fix**!!
-    并单击“**Send**”按钮
+15. **Ctrl+I**를 눌러 Copilot Inline을 열고 !!**/fix**!!를 입력하고
+    **Send** 버튼을 클릭하세요.
 
 ![](./media/image36.png)
 
-16. 如果可以找到解决方案，Copilot
-    会生成解决方案。根据解决方案的准确性接受或放弃解决方案。
+16. Copilot은 솔루션을 찾을 수 있는 경우 솔루션을 생성합니다. 솔루션의
+    정확성에 따라 솔루션을 수락하거나 폐기하세요.
 
 ![](./media/image37.png)
 
-17. 在这里，我们将常量声明移动到 returncolors 的 else if
-    块中以解决错误。
+17. 여기서는 오류를 해결하기 위해 returncolors의 else if 블록 내부로
+    상수 선언을 이동하고 있습니다.
 
 ![](./media/image38.png)
 
-**重要提示：** 根据 Copilot
-生成的代码和解决方案，代码和解决方案可能有所不同。
+**중요:** 코드와 해상도는 Copilot이 생성하는 코드와 해상도에 따라 다를
+수 있습니다.
 
-18. 添加块后，按 **Ctrl+I** 打开 Copilot 内联功能，粘贴以下内容并单击
-    **Send**。
+18. 블록을 추가한 후 **Ctrl+I**를 눌러 Copilot 인라인 기능을 열고 아래
+    내용을 붙여넣은 후 **Send**를 클릭하세요.
 
 **/TellMeAJoke:**
 
@@ -476,11 +490,12 @@ console.log(error);
 
 ![](./media/image39.png)
 
-19. 单击 **“Accept”** 以接受 Copilot 生成的代码。
+19. **Accept**을 클릭하여 Copilot에서 생성된 코드를 수락하세요.
 
 ![](./media/image40.png)
 
-20. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
+20. 생성된 코드 블록 후 **Ctrl+I**를 누르고 아래 텍스트를 입력한 후
+    **Send**버튼을 클릭하세요.
 
 **/MoviesByDirector:**
 
@@ -551,11 +566,12 @@ console.log(error);
 
 ![](./media/image41.png)
 
-21. 点击 **Accept** 接受代码。
+21. **Accept**을 클릭하여 코드를 수락하세요.
 
 ![](./media/image42.png)
 
-22. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
+22. 생성된 코드 블록 후 **Ctrl+I**를 누르고 아래 텍스트를 입력한 후
+    **Send** 버튼을 클릭하세요.
 
 **/ParseUrl:**
 
@@ -603,11 +619,12 @@ and hash**
 
 ![](./media/image43.png)
 
-23. 点击 **Accept** 接受代码。
+23. **Accept**를 클릭하여 코드를 수락하세요.
 
 ![](./media/image44.png)
 
-24. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
+24. 생성된 코드 블록 후 **Ctrl+I**를 누르고 아래 텍스트를 입력한 후
+    **Send**버튼을 클릭하세요.
 
 **/GetFullTextFile:**
 
@@ -640,16 +657,18 @@ res.end(linesFound);
 
 }
 
-**注意：**
-小心此实现，因为它通常会在分析文件之前读取文件的全部内容，因此内存使用率很高，并且当文件太大时可能会失败。
+**참고:** 이 구현은 일반적으로 파일을 분석하기 전에 파일의 전체 내용을
+읽기 때문에 메모리 사용량이 높고 파일이 너무 크면 실패할 수 있으므로
+주의하세요.
 
 ![](./media/image45.png)
 
-25. 点击 **Accept** 接受代码。
+25. **Accept**를 클릭하여 코드를 수락하세요.
 
 ![](./media/image46.png)
 
-26. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
+26. 생성된 코드 블록 후 **Ctrl+I**를 누르고 아래 텍스트를 입력한 후
+    **Send**버튼을 클릭하세요.
 
 **/GetLineByLinefromtTextFile:**
 
@@ -709,11 +728,12 @@ res.end(lines.toString());
 
 ![](./media/image47.png)
 
-27. 点击 **Accept** 接受代码。
+27. **Accept**을 클릭하여 코드를 수락하세요.
 
 ![](./media/image48.png)
 
-28. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send** 按钮。
+28. 생성된 코드 블록 후 **Ctrl+I**를 누르고 아래 텍스트를 입력한 후
+    **Send**버튼을 클릭하세요.
 
 **/CalculateMemoryConsumption:**
 
@@ -735,11 +755,12 @@ res.end(memory.toFixed(2) + " GB");
 
 ![](./media/image49.png)
 
-29. 点击 **Accept** 接受代码。
+29. Accept를 클릭하여 코드를 수락하세요.
 
 ![](./media/image50.png)
 
-30. 生成代码块后，按 **Ctrl+I**，输入以下文本，然后单击 **Send**按钮。
+30. 생성된 코드 블록 후 **Ctrl+I**를 누르고 아래 텍스트를 입력한 후
+    **Send** 버튼을 클릭하세요.
 
 **/RandomEuropeanCountry:**
 
@@ -874,74 +895,77 @@ res.end(randomCountry.country + " " + randomCountry.iso);
 
 ![](./media/image51.png)
 
-31. 点击 **Accept** 接受代码。
+31. **Accept**를 클릭하여 코드를 수락하세요.
 
 ![](./media/image52.png)
 
-## **练习 3：记录代码**
+## **연습 3: 코드 문서화**
 
-记录代码始终是一项枯燥而痛苦的任务。但是，我们可以使用 Copilot
-为我们记录它。在聊天中，要求 Copilot 记录nodeserver.js文件。
+코드를 문서화하는 것은 항상 지루하고 고통스러운 작업입니다. 그러나
+Copilot을 사용하여 문서화할 수 있습니다. 채팅에서 Copilot에게
+nodeserver.js 파일을 문서화하도록 요청하세요.
 
-1.  选择**nodeserver.js**文件中的**所有内容。**
+1.  **nodeserver.js** 파일에서 **모두 선택하세요.**
 
-2.  在 Copilot 聊天中，输入 !!**document the nodeserver.js
-    file**!!，然后单击发送。
+2.  Copilot chat에서 !!**document the nodeserver.js file**!!를 입력하고
+    Send를 클릭하세요.
 
-3.  Copilot 生成文件的详细文档。
+3.  Copilot은 파일에 대한 자세한 문서를 생성합니다.
 
 ![](./media/image53.png)
 
-## **练习 4：构建测试**
+## **연습 4: 테스트 구축**
 
-我们将创建自动化测试来检查先前端点的功能是否正确实现。测试应一起放在test.js文件中。
+이전 엔드포인트의 기능이 올바르게 구현되었는지 확인하기 위해 자동화된
+테스트를 생성합니다. 테스트는 test.js 파일에 함께 있어야 합니다.
 
-您可以利用 Copilot 运行测试。有一个 /tests 命令，您可以直接从 Copilot
-Chat 运行，也可以通过选择要为其创建测试的代码片段并使用 Copilot
-内联功能来运行该命令。
+Copilot을 활용하여 테스트를 실행할 수 있습니다. Copilot Chat에서 직접
+실행하거나 테스트를 생성하려는 코드 조각을 선택하고 Copilot 인라인
+기능을 사용하여 실행할 수 있는 /tests 명령이 있습니다.
 
-1.  打开test.js文件。
+1.  test.js 파일 여세요.
 
-2.  单击 现有 **it** 块后的 **Enter**。
+2.  기존 **it** 블록 뒤에 **Enter** 를 클릭하세요.
 
-3.  输入以下文本，然后单击 **Enter**。
+3.  아래 텍스트를 입력하고 **Enter**를 클릭하세요.
 
 **//add test to test DaysBetweenDates**
 
 ![](./media/image54.png)
 
-4.  这将生成 **DaysBetweenDates** 的单元测试块。点击 **Accept**
-    接受代码。
+4.  이렇게 하면 **DaysBetweenDates**에 대한 단위 테스트 블록이
+    생성됩니다. **Accept**를 클릭하여 코드를 수락하세요.
 
 ![](./media/image55.png)
 
-5.  在终端上，执行以下命令!!**mocha test.js**!!
+5.  터미널에서 아래 명령을 실행하세요. !!**mocha test.js**!!
 
 ![](./media/image56.png)
 
-6.  输入以下文本 **//add test to check validatephoneNumber**，然后单击
-    **Enter**。
+6.  아래 텍스트를 입력하세요 **//add test to check
+    validatephoneNumber.** **Enter**를 클릭하세요.
 
 ![](./media/image57.png)
 
-7.  单击 **“Accept”** 以接受 Copilot 生成的代码。
+7.  **Accept**를 클릭하여 Copilot에서 생성된 코드를 수락하세요.
 
 ![](./media/image58.png)
 
-8.  在终端上，执行命令!!**mocha test.js**!!.检查验证电话号码是否已通过。
+8.  터미널에서 명령을 실행하세요, !!**mocha test.js**!!. 유효성 검사
+    전화 번호가 통과했는지 확인하세요.
 
 ![](./media/image59.png)
 
-9.  输入以下文本并按 **Enter**。
+9.  다음 텍스트를 입력하고 **Enter**를 클릭하세요.
 
 !!**//write test to validate validateSpanishDNI**!!
 
 ![](./media/image60.png)
 
-10. 接受 Copilot 生成的文本。
+10. Copilot에서 생성된 텍스트 수락하세요.
 
-11. 从终端，执行!!**mocha test.js**!!并检查 ValidateSpanishDNI
-    是否已通过。
+11. 터미널에서 !!**mocha test.js**!!를 실행하고 ValidateSpanishDNI가
+    통과했는지 확인하세요.
 
 ![](./media/image61.png)
 
@@ -1180,38 +1204,40 @@ done();
 
 });
 
-## **练习 5：创建 Dockerfile**
+## **연습 5: Dockerfile를 생성하기**
 
-1.  从 **node** 文件夹中打开 **dockerfile**。
+1.  **node** 폴더에서 **dockerfile**를 여세요.
 
 ![](./media/image62.png)
 
-2.  该文件将包含有关如何填充它的注释。
+2.  파일은 어떻게 채워야 하는지에 대한 주석으로 구성됩니다.
 
-3.  按 **Ctrl+I** 并键入 !!**/fix**!!.单击 **Send** 图标。
+3.  **Ctrl+I**를 누르고 !!**/fix**!!를 입력하세요. **Send** 아이콘을
+    클릭하세요.
 
-4.  Copilot 将生成 Docker 文件内容。单击 **“Accept”**。
+4.  Copilot은 Docker 파일 콘텐츠를 생성합니다. **Accept**를 클릭하세요.
 
 ![](./media/image63.png)
 
-5.  在终端中，执行以下命令
+5.  터미널에서 아래 명령을 실행하세요.
 
 !!**docker build -t mynodeapp .**!!
 
-这是为了构建映像并将其标记为 mynodeapp。
+이는 이미지를 빌드하고 mynodeapp으로 태그를 지정하기 위한 것입니다.
 
 ![](./media/image64.png)
 
-6.  使用以下命令在端口 **4000** 中运行 docker。
+6.  아래 명령을 사용하여 포트 **4000**에서 도커를 실행하세요.
 
 !!**docker run -p 4000:3000 -d mynodeapp**!!
 
 ![](./media/image65.png)
 
-7.  打开 Docker 守护程序以查看应用程序是否已容器化并在其中运行。
+7.  Docker 데몬을 열어 애플리케이션이 컨테이너화되어 실행되고 있는지
+    확인하세요.
 
 ![](./media/image66.png)
 
-**总结：**
+**요약:**
 
-在本实验室中，我们学习了如何在节点项目中使用 Copilot
+이 랩에서는 노드 프로젝트에서 Copilot을 사용하는 방법을 배웠습니다
