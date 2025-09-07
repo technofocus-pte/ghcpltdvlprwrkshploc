@@ -1,74 +1,80 @@
-**实验 08：创建 GitHub Action 并在工作流中使用它**
+**실습 08: GitHub Action을 생성하고 워크플로우를 사용하기**
 
-目的：
+목표:
 
-想象一下，您是一个开发团队的一员，该团队希望通过自动化重复性任务来简化您的软件开发流程。为了提高效率，您决定利用
-GitHub Actions，它允许您直接在 GitHub
-存储库中自动执行测试、部署和代码审查等任务。通过设置 GitHub Action
-并将其集成到您的工作流程中，您可以确保自动执行基本任务，从而节省时间并减少手动工作。
+반복적인 작업을 자동화하여 소프트웨어 개발 프로세스를 간소화하려는 개발
+팀의 일원입니다. 효율성을 높이기 위해 GitHub 리포지토리 내에서 직접
+테스트, 배포 및 코드 검토와 같은 작업을 자동화할 수 있는 GitHub
+Actions를 활용하기로 결정했습니다. GitHub Action을 설정하고 이를
+워크플로에 통합하면 필수 작업이 자동으로 수행되도록 하여 시간을 절약하고
+수동 작업을 줄일 수 있습니다.
 
-在这个动手实验室中，你将：
+이 실습에서는 다음을 수행할 것입니다:
 
-- 在 .github/workflows
-  目录中设置工作流文件，定义内容并指定触发工作流的事件。
+- .github/workflows 디렉터리에 워크플로 파일을 설정하고, 콘텐츠를
+  정의하고, 워크플로를 트리거하는 이벤트를 지정하세요.
 
-- 练习将工作流文件添加并提交到存储库，以将 GitHub Actions
-  集成到开发过程中。
+- 리포지토리에 워크플로 파일을 추가하고 커밋하여 GitHub Actions를 개발
+  프로세스에 통합하는 연습하세요.
 
-练习 \#1：从公共模板创建新存储库
+연습 \#1: 공개 템플릿에서 새 리포지토리를 생성하기
 
-1.  浏览到以下链接： https://github.com/skills/hello-github-actions
+1.  다음 링크로
+    이동하세요: https://github.com/skills/hello-github-actions
 
-在本练习中，你将使用公共模板“**skills-hello-github-actions**”创建存储库。
+이 실습에서는 공개 템플릿 "**skills-hello-github-actions**"를 사용하여
+리포지토리를 생성할 것입니다.
 
 ![](./media/image1.jpeg)
 
-2.  选择“**Use this template**”菜单下的“**Create a new repository**”。  
+2.  **Use this template** 메뉴에서 **Create a new repository**를
+    선택하세요.
 
 ![](./media/image1.jpeg)
 
-3.  输入以下详细信息，然后选择 **Create Repository**。
+3.  다음 세부 정보를 입력하고 **Create Repository**를 선택하세요.
 
-    1.  存储库名称：**skills-hello-github-actions**
+    - 리포지토리 이름: **skills-hello-github-actions**
 
-<!-- -->
-
-1.  存储库类型： **Public**
+    - 리포지토리 유형: **Public**
 
 ![](./media/image2.jpeg)
 
-练习 \#2：创建工作流文件
+연습 \#2: 워크플로우 파일을 생성하기
 
-1.  在新创建的存储库的登陆页上，导航到“**Pull requests** ”选项卡。
+1.  새로 생성한 리포지토리의 랜딩 페이지에서 **Pull requests** 탭으로
+    이동하세요.
 
 ![](./media/image3.jpeg)
 
-2.  在下一页上，单击“**New pull request** ”按钮。
+2.  다음 페이지에서 **New pull request** 버튼을 클릭하세요.
 
 ![](./media/image4.jpeg)
 
-3.  在“**Compare changes** ”页上，选择“**base： main**”和“**compare：
-    welcome-workflow**”，然后单击“**Create pull request**”。
+3.  **Compare changes** 페이지에서 **base: main** 및 **compare:
+    welcome-workflow**를 선택하고 **Create pull request**를 클릭하세요.
 
 ![](./media/image5.jpeg)
 
-4.  在“**Open a pull request** ”页上，单击“**Create pull request**”。
+4.  **Open a pull request** 패이지에서 **Create pull request**를
+    클릭하세요.
 
 ![](./media/image6.jpeg)
 
-5.  导航到“**Code**”选项卡。 
+5.  **Code** 탭으로 이동하세요.
 
 ![](./media/image7.jpeg)
 
-6.  在下一页上，从 **main branch dropdown** 中，单击
-    **welcome-workflow** 分支。
+6.  다음 페이지의 **main branch dropdown**에서
+    **welcome-workflow** 분기를 클릭하세요.
 
 ![](./media/image8.jpeg)
 
 ![](./media/image9.jpeg)
 
-7.  将主分支更改为 **welcome-workflow** 后，导航到 **.github/workflows**
-    文件夹，然后选择“**Add file** ”，然后单击“**Create new file**”。
+7.  기본 분기가 **welcome-workflow**로 변경되면 **.github/workflows**
+    폴더로 이동하고 **Add file**을 선택하고 **Create new file**를
+    클릭하세요.
 
 ![](./media/image10.jpeg)
 
@@ -76,12 +82,12 @@ GitHub Actions，它允许您直接在 GitHub
 
 ![](./media/image12.jpeg)
 
-8.  在文件创建页面上，输入文件名welcome.yml
+8.  파일 생성 페이지에서 파일 이름을 welcome.yml로 입력하세요.
 
 ![](./media/image13.jpeg)
 
-9.  在编辑器页面上，将以下内容添加到welcome.yml文件：并单击“**Commit
-    changes**”。
+9.  편집기 페이지에서 welcome.yml 파일에 다음 콘텐츠를 추가하고 **Commit
+    changes**를 클릭하세요.
 
 10. name: Post welcome comment
 
@@ -97,14 +103,14 @@ pull-requests: write
 
 ![](./media/image14.jpeg)
 
-15. 在“**Commit changes** ”页上，单击“**commit changes**”。
+15. **Commit changes** 페이지에서 **commit changes**를 클릭하세요.
 
-16. 等待 20 秒让作运行，然后刷新此作，作将自动关闭此步骤。
+16. 작업이 실행될 때까지 20초 동안 기다린 후 새로 고치면 작업이 자동으로
+    이 단계를 닫습니다.
 
 ![](./media/image15.jpeg)
 
-总结：
+요약:
 
-您现在已经获得了设置和管理 GitHub Actions
-的实践经验，提高了自动化和优化软件开发工作流程的能力。
-
+이제 GitHub Actions 설정 및 관리에 대한 실무 경험을 쌓아 소프트웨어 개발
+워크플로를 자동화하고 최적화하는 능력을 향상시켰습니다.
