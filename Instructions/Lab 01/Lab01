@@ -1,1 +1,83 @@
+**Lab 01: Erstellen eines GitHub-Repositorys und eines Zweigs**
+
+Objektiv:
+
+Stellen Sie sich vor, Sie sind neu in der Softwareentwicklung und haben
+sich einem Team angeschlossen, das GitHub für die Versionskontrolle und
+Zusammenarbeit verwendet. Um effektiv zu Ihren Projekten beizutragen und
+mit der Open-Source-Community in Kontakt zu treten, benötigen Sie ein
+solides Verständnis der Kernkonzepte und -funktionen von GitHub.
+
+In diesem Lab werden Sie folgende Aufgaben erfüllen:
+
+- Erstellen eines Repositorys aus einer Vorlage
+
+- Erstellen eines Zweigs: Üben Sie das Erstellen eines neuen Zweigs in
+  einem Repository, um die parallele Entwicklung zu erkunden und zu
+  untersuchen, wie Zweige unabhängiges Arbeiten erleichtern.
+
+Übung \#1: Erstellen eines Repositorys aus einer Vorlage und einem Zweig
+innerhalb des Repositorys
+
+1.  Melden Sie sich bei Ihrem GitHub-Konto an.
+
+2.  Navigieren Sie zu folgendem Link:
+    https://github.com/skills/introduction-to-github
+
+In diesem Lab erstellen Sie das Repository mit einer öffentlichen
+Vorlage "**skills-introduction-to-github**".
+
+![Ein Screenshot eines Computers KI-generierte Inhalte können falsch
+sein.](./media/image1.jpeg)
+
+3.  Wählen Sie im Menü **Use this template** die Option **Create a new
+    repository** aus.
+
+![Ein Screenshot eines Computers KI-generierte Inhalte können falsch
+sein.](./media/image2.jpeg)
+
+4.  Geben Sie die folgenden Details ein, und wählen Sie **Create
+    Repository** aus.
+
+    - Name des Repositorys: **skills-introduction-to-github**
+
+    - Repository-Typ: **Public**
+
+![Ein Screenshot eines Computers KI-generierte Inhalte können falsch
+sein.](./media/image3.jpeg)
+
+5.  Navigieren Sie zur Registerkarte **Code** im Kopfzeilenmenü Ihres
+    Repositorys.
+
+![Ein Screenshot eines Computers KI-generierte Inhalte können falsch
+sein.](./media/image4.jpeg)
+
+6.  Klicken Sie auf das Dropdown-Menü für den Hauptzweig(main).
+
+![Ein Screenshot eines Computers KI-generierte Inhalte können falsch
+sein.](./media/image5.jpeg)
+
+7.  Geben Sie im Feld **" Find a branch** " den Namen
+    **my-first-branch** ein und wählen Sie " Create
+    branch **my-first-branch** from main " aus.
+
+![Ein Screenshot eines Computers KI-generierte Inhalte können falsch
+sein.](./media/image6.jpeg)
+
+8.  Der Zweig wechselt automatisch zu dem Zweig, den Sie gerade erstellt
+    haben. Die Dropdown-Leiste für den main-Zweig spiegelt Ihren neuen
+    Zweig wider und zeigt den Namen des neuen Zweigs an.
+
+![Ein Screenshot eines Computers KI-generierte Inhalte können falsch
+sein.](./media/image7.jpeg)
+
+Zusammenfassung:
+
+In diesem Lab haben Sie
+
+- Ein neues Git-Repository initialisiert, um mit der Nachverfolgung
+  Ihrer Projekte zu beginnen.
+
+- Den Prozess des Erstellens von Branches verstanden, um verschiedene
+  Features oder Versionen Ihres Codes zu verwalten.
 
