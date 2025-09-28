@@ -1,4 +1,4 @@
-**Lab 02: Kommunizieren mit Markdown**
+#**Lab 02: Kommunizieren mit Markdown**
 
 Objektiv:
 
