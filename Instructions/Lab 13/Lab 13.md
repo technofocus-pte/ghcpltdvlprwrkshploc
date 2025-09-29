@@ -1,6 +1,6 @@
 **Laboratoire 13 : Créez une action JavaScript GitHub et automatisez des tâches personnalisées propres à votre flux de travail.**
   
-**Objectifs:
+**Objectifs:**
 
 Imaginez que vous soyez chargé de créer une action GitHub personnalisée
 pour automatiser des tâches spécifiques au sein de votre flux de
